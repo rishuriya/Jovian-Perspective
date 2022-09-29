@@ -2,3 +2,4 @@ myvenv
 *.jpg
 *.png
 ImageSet
+__pycache__
