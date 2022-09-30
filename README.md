@@ -17,3 +17,9 @@ To run the project, give command of
     python start.py
 ```
 
+
+## Screenshots
+Screenshot of the Home Page of Software
+
+![App Screenshot](https://github.com/rishuriya/nasa-spaceapp/blob/master/Resource/Screenshot%20from%202022-09-30%2019-32-49.png)
+
