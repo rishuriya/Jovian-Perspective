@@ -1,127 +1,64 @@
-import os
-from pathlib import Path
-import sys
-import numpy as np
-
-from glob import glob
-import cv2
-import matplotlib.pylab as plt
-from PySide6.QtWidgets import QApplication, QWidget, QPushButton, QFileDialog, QLabel
-from PySide6.QtGui import QImage, QPixmap
-from PySide6.QtCore import QFile
-from PySide6.QtUiTools import QUiLoader
-class Home(QWidget):
-
-    def load_ui(self, OtherWIndow):
-        loader = QUiLoader()
-        path = Path(__file__).resolve().parent / "Home.ui"
-        print(path)
-        ui_file = QFile(path)
-        ui_file.open(QFile.ReadOnly)
-        loader.load(ui_file, self)
-        ui_file.close()
-    def greet(self):
-            plt.style.use('ggplot')
-
-            #reading Image
-
-            img_files = glob("mpl_.png")
-
-            img_cv2=cv2.imread(img_files[0])
-            img_mpl = plt.imread(img_files[0])
-
-            img_mpl.shape, img_cv2.shape
-
-            #pd.Series(img_mpl.flatten()).plot(kind='hist',bins=50,title='Distribution of Pixel Values')
-            #plt.show()
-
-            fig, ax = plt.subplots(figsize=(10, 10))
-            ax.set_title("original image")
-            ax.imshow(img_mpl)
-            ax.axis('off')
-            plt.show()
-            #print(len(img_mpl[0][0]))
-            # Display RGB Channels of our image
-            try:
-               print(len(img_mpl[0][0]))
-               fig, axs = plt.subplots(1, 3, figsize=(15, 5))
-               axs[0].imshow(img_mpl[:,:,0], cmap='Reds')
-               axs[1].imshow(img_mpl[:,:,1], cmap='Greens')
-               axs[2].imshow(img_mpl[:,:,2], cmap='Blues')
-               axs[0].axis('off')
-               axs[1].axis('off')
-               axs[2].axis('off')
-               axs[0].set_title('Red channel')
-               axs[1].set_title('Green channel')
-               axs[2].set_title('Blue channel')
-               plt.show()
-            except:
-                    fig, axs = plt.subplots(1, 3, figsize=(15, 5))
-                    axs[0].imshow(img_mpl[:,:], cmap='Reds')
-                    axs[1].imshow(img_mpl[:,:], cmap='Greens')
-                    axs[2].imshow(img_mpl[:,:], cmap='Blues')
-                    axs[0].axis('off')
-                    axs[1].axis('off')
-                    axs[2].axis('off')
-                    axs[0].set_title('Red channel')
-                    axs[1].set_title('Green channel')
-                    axs[2].set_title('Blue channel')
-                    plt.show()
-
-            img = plt.imread(img_files[0])
-
-            img_gray = cv2.cvtColor(img_cv2, cv2.COLOR_RGB2GRAY)
-            fig, ax = plt.subplots(figsize=(8, 8))
-            ax.imshow(img_gray, cmap='Greys')
-            ax.axis('off')
-            ax.set_title('Grey Image')
-            plt.show()
-
-            #edge_detection
-            fig, axs = plt.subplots(figsize=(8, 8))
-            edges = cv2.Canny(img_cv2,1,100)
-            axs.imshow(edges,cmap = 'gray')
-            axs.axis('off')
-            plt.show()
-
-            # Different Size
-            img_resize = cv2.resize(img, (100, 200))
-            fig, ax = plt.subplots(figsize=(8, 8))
-            ax.imshow(img_resize)
-            ax.set_title('Lowered_pixel')
-            ax.axis('off')
-            plt.show()
-
-            img_resize = cv2.resize(img, (5000, 5000), interpolation = cv2.INTER_CUBIC)
-            fig, ax = plt.subplots(figsize=(8, 8))
-            ax.imshow(img_resize)
-            ax.set_title('Size_change')
-            ax.axis('off')
-            plt.show()
-
-            # Sharpen Image
-            kernel_sharpening = np.array([[-1,-1,-1],
-                                          [-1,9,-1],
-                                          [-1,-1,-1]])
-
-            sharpened = cv2.filter2D(img, -1, kernel_sharpening)
-
-            fig, ax = plt.subplots(figsize=(8, 8))
-            ax.imshow(sharpened)
-            ax.axis('off')
-            ax.set_title('Sharpened Image')
-            plt.show()
-
-            # Blurring the image
-            kernel_3x3 = np.ones((3, 3), np.float32) / 9
-            blurred = cv2.filter2D(img, -1, kernel_3x3)
-            fig, ax = plt.subplots(figsize=(8, 8))
-            ax.imshow(blurred)
-            ax.axis('off')
-            ax.set_title('Blurred Image')
-            plt.show()
+from PyQt6 import QtCore, QtGui, QtWidgets
 
 
-            plt.imsave('mpl_.png', blurred)
-            cv2.imwrite('cv2_.png', blurred)
+class Ui_Form(object):
+    def setupUi(self, Form, File):
+        global fname
+        fname=File[0]
+        Form.setObjectName("Form")
+        Form.resize(800, 600)
+        self.frame = QtWidgets.QFrame(Form)
+        self.frame.setGeometry(QtCore.QRect(10, 10, 782, 582))
+        self.frame.setFrameShape(QtWidgets.QFrame.Shape.StyledPanel)
+        self.frame.setFrameShadow(QtWidgets.QFrame.Shadow.Raised)
+        self.frame.setObjectName("frame")
+        self.greet = QtWidgets.QPushButton(self.frame)
+        self.greet.setGeometry(QtCore.QRect(320, 90, 121, 41))
+        self.greet.setObjectName("greet")
+        self.label = QtWidgets.QLabel(self.frame)
+        self.label.setGeometry(QtCore.QRect(230, 10, 311, 61))
+        font = QtGui.QFont()
+        font.setFamily("Z003")
+        font.setPointSize(27)
+        font.setItalic(True)
+        self.label.setFont(font)
+        self.label.setTextFormat(QtCore.Qt.TextFormat.AutoText)
+        self.label.setScaledContents(False)
+        self.label.setAlignment(QtCore.Qt.AlignmentFlag.AlignCenter)
+        self.label.setIndent(-1)
+        self.label.setObjectName("label")
+        self.go = QtWidgets.QPushButton(self.frame)
+        self.go.setGeometry(QtCore.QRect(570, 514, 161, 51))
+        self.go.setObjectName("go")
+        self.Image = QtWidgets.QLabel(self.frame)
+        self.Image.setGeometry(QtCore.QRect(80, 140, 601, 351))
+        self.Image.setText("")
+        self.Image.setObjectName("Image")
+        self.treeView = QtWidgets.QTreeView(self.frame)
+        self.treeView.setGeometry(QtCore.QRect(-5, -19, 801, 601))
+        self.treeView.setObjectName("treeView")
+        self.treeView.raise_()
+        self.label.raise_()
+        self.greet.raise_()
+        self.go.raise_()
+        self.Image.raise_()
 
+        self.retranslateUi(Form)
+        QtCore.QMetaObject.connectSlotsByName(Form)
+
+    def retranslateUi(self, Form):
+        _translate = QtCore.QCoreApplication.translate
+        Form.setWindowTitle(_translate("Form", "Form"))
+        self.greet.setText(_translate("Form", "Select Image"))
+        self.label.setText(_translate("Form", "Explore Jovian System"))
+        self.go.setText(_translate("Form", "Lets Goo -->"))
+
+
+if __name__ == "__main__":
+    import sys
+    app = QtWidgets.QApplication(sys.argv)
+    Form = QtWidgets.QWidget()
+    ui = Ui_Form()
+    ui.setupUi(Form)
+    Form.show()
+    sys.exit(app.exec())

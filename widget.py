@@ -2,7 +2,7 @@
 import os
 from pathlib import Path
 import sys
-from Home import Home
+from Home import Ui_Form
 from PySide6.QtWidgets import QApplication, QWidget, QPushButton, QFileDialog, QLabel, QDialog, QMainWindow
 from PySide6.QtGui import QImage, QPixmap
 from PySide6.QtCore import QFile
@@ -26,9 +26,9 @@ class Start(QWidget):
         self.button1.clicked.connect(self.open_home)
         ui_file.close()
     def open_home(self):
-        self.window=QMainWindow()
-        self.ui=Home()
-        self.ui.load_ui(self.window)
+        self.window=QWidget()
+        self.ui=Ui_Form()
+        self.ui.setupUi(self.window)
         widget.hide()
         self.window.show()
     def open_dialog(self):

@@ -1,3 +1,3 @@
 {
-    "files": ["widget.py","Home.py","form.ui","Home.ui"]
+    "files": ["form.ui","widget.py","home.ui","Home.py"]
 }
