@@ -1,6 +1,4 @@
 myvenv
-*.jpg
-*.png
 ImageSet
 __pycache__
 main.py

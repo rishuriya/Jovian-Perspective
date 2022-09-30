@@ -7,7 +7,7 @@ from brightness import Ui_brightness
 class Ui_Form(object):
     def setupUi(self, Form,File):
         Form.setObjectName("Form")
-        Form.resize(1397, 726)
+        Form.resize(1200, 768)
         sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Policy.Maximum, QtWidgets.QSizePolicy.Policy.Maximum)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
@@ -31,6 +31,9 @@ class Ui_Form(object):
 "}\n"
 "QPushButton{\n"
 "background-color:#071e26;\n"
+"}\n"
+"#header{\n"
+"text-color:#000;\n"
 "}")
         self.frame.setFrameShape(QtWidgets.QFrame.Shape.StyledPanel)
         self.frame.setFrameShadow(QtWidgets.QFrame.Shadow.Raised)
@@ -48,19 +51,13 @@ class Ui_Form(object):
         self.original.setScaledContents(True)
 
         self.change = QtWidgets.QLabel(self.frame)
-        self.change.setGeometry(QtCore.QRect(770, 90, 451, 501))
+        self.change.setGeometry(QtCore.QRect(710, 90, 451, 501))
         self.change.setText("")
         self.change.setObjectName("change")
-        self.save = QtWidgets.QPushButton(self.frame)
-        self.save.setGeometry(QtCore.QRect(1220, 10, 121, 41))
-        icon = QtGui.QIcon.fromTheme("document-save")
-        self.save.setIcon(icon)
-        self.save.setObjectName("save")
-        self.discard = QtWidgets.QPushButton(self.frame)
-        self.discard.setGeometry(QtCore.QRect(1070, 10, 121, 41))
-        icon = QtGui.QIcon.fromTheme("edit-clear")
-        self.discard.setIcon(icon)
-        self.discard.setObjectName("discard")
+
+        self.change.setPixmap(pixmap)
+        self.change.setScaledContents(True)
+
         self.ui = QtWidgets.QFrame(self.frame)
         self.ui.setGeometry(QtCore.QRect(-10, -10, 201, 751))
         sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Policy.Maximum, QtWidgets.QSizePolicy.Policy.Maximum)
@@ -99,24 +96,72 @@ class Ui_Form(object):
         self.colour.setObjectName("colour")
         self.colour.clicked.connect(self.open_Colour)
         self.logo = QtWidgets.QLabel(self.ui)
-        self.logo.setGeometry(QtCore.QRect(36, 36, 141, 71))
+        self.logo.setGeometry(QtCore.QRect(50, 20, 100, 100))
         self.logo.setText("")
         self.logo.setObjectName("logo")
 
-        pixmap_logo = QtGui.QPixmap("ImageSet/85539b9ed619c9423eec9476d970b93c.jpg")
+        pixmap_logo = QtGui.QPixmap("Resource/space-app.png")
         print(pixmap)
         self.logo.setPixmap(pixmap_logo)
-        self.logo.setScaledContents(True)
+        self.logo.setScaledContents(False)
 
+        self.header = QtWidgets.QFrame(self.frame)
+        self.header.setGeometry(QtCore.QRect(199, 10, 991, 61))
+        self.header.setStyleSheet("QLabel{\n"
+"color:#000;\n"
+"    font: 30pt \"Ubuntu Condensed Bold\";\n"
+"}")
+        self.header.setFrameShape(QtWidgets.QFrame.Shape.StyledPanel)
+        self.header.setFrameShadow(QtWidgets.QFrame.Shadow.Raised)
+        self.header.setObjectName("header")
+        self.discard = QtWidgets.QPushButton(self.header)
+        self.discard.setGeometry(QtCore.QRect(720, 10, 121, 41))
+        icon = QtGui.QIcon.fromTheme("edit-clear")
+        self.discard.setIcon(icon)
+        self.discard.setObjectName("discard")
+        self.save = QtWidgets.QPushButton(self.header)
+        self.save.setGeometry(QtCore.QRect(850, 10, 121, 41))
+        icon = QtGui.QIcon.fromTheme("document-save")
+        self.save.setIcon(icon)
+        self.save.setObjectName("save")
+        self.label = QtWidgets.QLabel(self.header)
+        self.label.setGeometry(QtCore.QRect(6, 6, 541, 51))
+        self.label.setObjectName("label")
+        self.footer = QtWidgets.QFrame(self.frame)
+        self.footer.setGeometry(QtCore.QRect(199, 610, 1001, 80))
+        self.footer.setStyleSheet("QLabel{\n"
+"color:#000\n"
+"}")
+        self.footer.setFrameShape(QtWidgets.QFrame.Shape.StyledPanel)
+        self.footer.setFrameShadow(QtWidgets.QFrame.Shadow.Raised)
+        self.footer.setObjectName("footer")
+        self.label_2 = QtWidgets.QLabel(self.footer)
+        self.label_2.setGeometry(QtCore.QRect(100, 10, 271, 51))
+        font = QtGui.QFont()
+        font.setPointSize(20)
+        font.setBold(False)
+        font.setItalic(True)
+        self.label_2.setFont(font)
+        self.label_2.setAlignment(QtCore.Qt.AlignmentFlag.AlignCenter)
+        self.label_2.setObjectName("label_2")
+        self.label_3 = QtWidgets.QLabel(self.footer)
+        self.label_3.setGeometry(QtCore.QRect(600, 10, 271, 51))
+        font = QtGui.QFont()
+        font.setPointSize(20)
+        font.setItalic(True)
+        self.label_3.setFont(font)
+        self.label_3.setAlignment(QtCore.Qt.AlignmentFlag.AlignCenter)
+        self.label_3.setObjectName("label_3")
         self.ui.raise_()
         self.original.raise_()
         self.change.raise_()
-        self.save.raise_()
-        self.discard.raise_()
+        self.header.raise_()
+        self.footer.raise_()
 
         self.retranslateUi(Form)
         QtCore.QMetaObject.connectSlotsByName(Form)
 
+        
     def open_Sharpness(self):
         self.window=QtWidgets.QWidget()
         self.ui=Ui_Sharpness()
@@ -141,13 +186,16 @@ class Ui_Form(object):
     def retranslateUi(self, Form):
         _translate = QtCore.QCoreApplication.translate
         Form.setWindowTitle(_translate("Form", "Form"))
-        self.save.setText(_translate("Form", "Save"))
-        self.discard.setText(_translate("Form", "Discard"))
-        self.auto_2.setText(_translate("Form", "Auto_Enchance"))
+        self.auto_2.setText(_translate("Form", "Auto Enhance"))
         self.sharpness.setText(_translate("Form", "Sharpness"))
         self.edge.setText(_translate("Form", "Edge"))
         self.brightness.setText(_translate("Form", "Brightness"))
         self.colour.setText(_translate("Form", "Colour"))
+        self.discard.setText(_translate("Form", "Discard"))
+        self.save.setText(_translate("Form", "Save"))
+        self.label.setText(_translate("Form", "Perespective"))
+        self.label_2.setText(_translate("Form", "Original Image"))
+        self.label_3.setText(_translate("Form", "Processed Image"))
 
 
 if __name__ == "__main__":

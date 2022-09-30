@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1397</width>
-    <height>726</height>
+    <width>1200</width>
+    <height>768</height>
    </rect>
   </property>
   <property name="sizePolicy">
@@ -48,6 +48,9 @@ background-color:rgb(97, 53, 131)
 }
 QPushButton{
 background-color:#071e26;
+}
+#header{
+text-color:#000;
 }</string>
    </property>
    <property name="frameShape">
@@ -72,7 +75,7 @@ background-color:#071e26;
    <widget class="QLabel" name="change">
     <property name="geometry">
      <rect>
-      <x>770</x>
+      <x>710</x>
       <y>90</y>
       <width>451</width>
       <height>501</height>
@@ -80,38 +83,6 @@ background-color:#071e26;
     </property>
     <property name="text">
      <string/>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="save">
-    <property name="geometry">
-     <rect>
-      <x>1220</x>
-      <y>10</y>
-      <width>121</width>
-      <height>41</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Save</string>
-    </property>
-    <property name="icon">
-     <iconset theme="document-save"/>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="discard">
-    <property name="geometry">
-     <rect>
-      <x>1070</x>
-      <y>10</y>
-      <width>121</width>
-      <height>41</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Discard</string>
-    </property>
-    <property name="icon">
-     <iconset theme="edit-clear"/>
     </property>
    </widget>
    <widget class="QFrame" name="ui">
@@ -213,10 +184,10 @@ background-color:#071e26;
     <widget class="QLabel" name="logo">
      <property name="geometry">
       <rect>
-       <x>36</x>
-       <y>36</y>
-       <width>141</width>
-       <height>71</height>
+       <x>50</x>
+       <y>20</y>
+       <width>100</width>
+       <height>100</height>
       </rect>
      </property>
      <property name="text">
@@ -224,11 +195,144 @@ background-color:#071e26;
      </property>
     </widget>
    </widget>
+   <widget class="QFrame" name="header">
+    <property name="geometry">
+     <rect>
+      <x>199</x>
+      <y>10</y>
+      <width>991</width>
+      <height>61</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QLabel{
+color:#000;
+	font: 30pt &quot;Ubuntu Condensed Bold&quot;;
+}</string>
+    </property>
+    <property name="frameShape">
+     <enum>QFrame::StyledPanel</enum>
+    </property>
+    <property name="frameShadow">
+     <enum>QFrame::Raised</enum>
+    </property>
+    <widget class="QPushButton" name="discard">
+     <property name="geometry">
+      <rect>
+       <x>720</x>
+       <y>10</y>
+       <width>121</width>
+       <height>41</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Discard</string>
+     </property>
+     <property name="icon">
+      <iconset theme="edit-clear"/>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="save">
+     <property name="geometry">
+      <rect>
+       <x>850</x>
+       <y>10</y>
+       <width>121</width>
+       <height>41</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Save</string>
+     </property>
+     <property name="icon">
+      <iconset theme="document-save"/>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label">
+     <property name="geometry">
+      <rect>
+       <x>6</x>
+       <y>6</y>
+       <width>541</width>
+       <height>51</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Perespective</string>
+     </property>
+    </widget>
+   </widget>
+   <widget class="QFrame" name="footer">
+    <property name="geometry">
+     <rect>
+      <x>199</x>
+      <y>610</y>
+      <width>1001</width>
+      <height>80</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QLabel{
+color:#000
+}</string>
+    </property>
+    <property name="frameShape">
+     <enum>QFrame::StyledPanel</enum>
+    </property>
+    <property name="frameShadow">
+     <enum>QFrame::Raised</enum>
+    </property>
+    <widget class="QLabel" name="label_2">
+     <property name="geometry">
+      <rect>
+       <x>100</x>
+       <y>10</y>
+       <width>271</width>
+       <height>51</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>20</pointsize>
+       <italic>true</italic>
+       <bold>false</bold>
+      </font>
+     </property>
+     <property name="text">
+      <string>Original Image</string>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignCenter</set>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_3">
+     <property name="geometry">
+      <rect>
+       <x>600</x>
+       <y>10</y>
+       <width>271</width>
+       <height>51</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>20</pointsize>
+       <italic>true</italic>
+      </font>
+     </property>
+     <property name="text">
+      <string>Processed Image</string>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignCenter</set>
+     </property>
+    </widget>
+   </widget>
    <zorder>ui</zorder>
    <zorder>original</zorder>
    <zorder>change</zorder>
-   <zorder>save</zorder>
-   <zorder>discard</zorder>
+   <zorder>header</zorder>
+   <zorder>footer</zorder>
   </widget>
  </widget>
  <resources/>
