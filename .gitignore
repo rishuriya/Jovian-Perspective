@@ -3,3 +3,7 @@ myvenv
 *.png
 ImageSet
 __pycache__
+main.py
+mainwindow.py
+mainwindow.ui
+*.json
