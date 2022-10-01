@@ -107,10 +107,13 @@ class Ui_Sharpness(object):
         self.retranslateUi(Form)
         QtCore.QMetaObject.connectSlotsByName(Form)
     def img_reset(self):
-        print("reset")
         isThere = os.path.exists(name)
         if isThere==True:
             os.remove(name)
+        pixmap = QtGui.QPixmap(fname)
+        self.verticalSlider.setValue(0)
+        self.label.setPixmap(pixmap)
+        self.label.setScaledContents(True)
     
     def update_image(self, value):
         isThere = os.path.exists(name)
