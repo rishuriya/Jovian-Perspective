@@ -2,7 +2,7 @@ from typing import Counter
 from PyQt6 import QtCore, QtGui, QtWidgets
 
 import os
-
+from navigate.dialog_discard import Ui_Dialog
 from navigate.urls import Url
 
 class Ui_Form(object):
@@ -138,6 +138,7 @@ class Ui_Form(object):
         icon = QtGui.QIcon.fromTheme("document-save")
         self.save.setIcon(icon)
         self.save.setObjectName("save")
+        self.save.clicked.connect(self.saveit)
         self.label = QtWidgets.QLabel(self.header)
         self.label.setGeometry(QtCore.QRect(6, 6, 541, 51))
         self.label.setObjectName("label")
@@ -197,7 +198,20 @@ class Ui_Form(object):
         else:
             Url.colour(self,wid,fname,counter)
     def closeit(self):
-        QtCore.QCoreApplication.instance().quit()
+        if isExist == True:
+            Dialog = QtWidgets.QDialog()
+            ui = Ui_Dialog()
+            ui.setupUi(Dialog,wid)
+            Dialog.show()
+            Dialog.exec()
+        else:
+            QtCore.QCoreApplication.instance().quit()
+
+    def saveit(self):
+        if isExist==True:
+            Url.saveit(self,wid,tname)
+        else:
+            QtCore.QCoreApplication.instance().quit()
 
     def retranslateUi(self, Form):
         _translate = QtCore.QCoreApplication.translate
