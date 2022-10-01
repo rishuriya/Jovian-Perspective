@@ -29,16 +29,15 @@ class Ui_brightness(object):
 "color:#fff}")
         global fname
         fname="Temp/temp.png"
-        global image
-        image = cv2.imread(File)
-        cv2.imwrite(name,image)
-        cv2.imwrite(fname,image)
         global isExist
-        
         isExist = os.path.exists(fname)
         if isExist==False:
             img = Image.open(File)
             img = img.save(fname)
+        isThere = os.path.exists(name)
+        if isThere==False:
+            img = Image.open(fname)
+            img = img.save(name)
         self.verticalLayout = QtWidgets.QVBoxLayout(Form)
         self.verticalLayout.setObjectName("verticalLayout")
         self.frame = QtWidgets.QFrame(Form)
@@ -103,7 +102,7 @@ class Ui_brightness(object):
         icon = QtGui.QIcon.fromTheme("document-open")
         self.reset.setIcon(icon)
         self.reset.setObjectName("reset")
-        self.reset.clicked.connect(self.changeBright)
+        self.reset.clicked.connect(self.img_reset)
         self.compare = QtWidgets.QPushButton(self.ui)
         self.compare.setGeometry(QtCore.QRect(78, 384, 131, 41))
         icon = QtGui.QIcon.fromTheme("system-reboot")
@@ -115,37 +114,32 @@ class Ui_brightness(object):
         self.retranslateUi(Form)
         QtCore.QMetaObject.connectSlotsByName(Form)
     def img_reset(self):
-        print("reset")
-        # isThere = os.path.exists(name)
-        # if isThere==True:
-        #     os.remove(name)
-        pix = QtGui.QPixmap(name)
-        self.label.setPixmap(pix)
-    def changeBright(self):
-        i = cv2.imread(fname)
-        # out = image_processing.increase_brightness(i,value)
-        # cv2.imwrite(fname,out)
-        pix = QtGui.QPixmap(fname)
-        self.label.setPixmap(pix)
+        isThere = os.path.exists(name)
+        if isThere==True:
+            os.remove(name)
+        pixmap = QtGui.QPixmap(fname)
+        self.verticalSlider.setValue(0)
+        self.label.setPixmap(pixmap)
+        self.label.setScaledContents(True)
+        
     def update_image(self, value):
-        print(value)
+        isThere = os.path.exists(name)
+        if isThere==False:
+             img = Image.open(fname)
+             img = img.save(name)
         i = cv2.imread(name)
         out = image_processing.increase_brightness(i,value)
-        cv2.imwrite(fname,out)
-        isThere = os.path.exists(fname)
-        # if isThere==False:
-        #     img = Image.open(fname)
-        #     img = img.save(name)
-        pixmap = QtGui.QPixmap(fname)
+        cv2.imwrite(name,out)
+        pixmap = QtGui.QPixmap(name)
         self.label.setPixmap(pixmap)
         self.label.setScaledContents(True)
     def img_save(self):
-        # img = Image.open(name)
-        # img = img.save(fname)
         global val
         val=val+1
         isThere = os.path.exists(name)
         if isThere==True:
+            img = Image.open(name)
+            img = img.save(fname)
             os.remove(name)
         Edit.img_saved(self,wid,pfile,fname,val)
     def img_discard(self):

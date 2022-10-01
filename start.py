@@ -1,10 +1,12 @@
 from PyQt6 import QtCore, QtGui, QtWidgets
-
+import os
 from Home import Ui_Form
 
 class Ui_Widget(object):
     def setupUi(self, Widget):
         Widget.setObjectName("Widget")
+        if os.path.exists("Temp/temp.png")==True:
+            os.remove("Temp/temp.png")
         Widget.resize(800, 600)
         self.gridLayout = QtWidgets.QGridLayout(Widget)
         self.gridLayout.setObjectName("gridLayout")

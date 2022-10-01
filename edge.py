@@ -116,6 +116,10 @@ class Ui_edge(object):
         isThere = os.path.exists(name)
         if isThere==True:
             os.remove(name)
+        pixmap = QtGui.QPixmap(tname)
+        self.verticalSlider.setValue(0)
+        self.label.setPixmap(pixmap)
+        self.label.setScaledContents(True)
     
     def update_image(self, value):
         
