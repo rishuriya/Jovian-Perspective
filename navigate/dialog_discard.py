@@ -61,7 +61,8 @@ class Ui_Dialog(object):
         self.save.setObjectName("save")
         self.save.clicked.connect(self.saveit)
         self.horizontalLayout.addWidget(self.save)
-
+        global dialog_ui
+        dialog_ui=Dialog
         self.retranslateUi(Dialog)
         QtCore.QMetaObject.connectSlotsByName(Dialog)
     def closeit(self):
@@ -71,7 +72,7 @@ class Ui_Dialog(object):
         QtCore.QCoreApplication.instance().quit()
 
     def cancelit(self):
-        Dialog.hide()
+        dialog_ui.hide()
 
     def saveit(self):
         Url.saveit(self,wid,"Temp/temp.png")

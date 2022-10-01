@@ -1,12 +1,11 @@
 from PyQt6 import QtCore, QtGui, QtWidgets
 from PIL import Image
 import os
-import cv2
-import image_processing
+
 from navigate.navigate import Edit
 
-class Ui_brightness(object):
-    
+class Ui_autoenhance(object):
+
     def setupUi(self, Form,File,x):
         global val
         val=x
@@ -15,7 +14,7 @@ class Ui_brightness(object):
         global pfile
         pfile=File
         global name
-        name="Temp/brightness.png"
+        name="Temp/colour.png"
         Form.setObjectName("Form")
         Form.resize(889, 612)
         Form.setStyleSheet("*{border:none;\n"
@@ -34,10 +33,6 @@ class Ui_brightness(object):
         if isExist==False:
             img = Image.open(File)
             img = img.save(fname)
-        isThere = os.path.exists(name)
-        if isThere==False:
-            img = Image.open(fname)
-            img = img.save(name)
         self.verticalLayout = QtWidgets.QVBoxLayout(Form)
         self.verticalLayout.setObjectName("verticalLayout")
         self.frame = QtWidgets.QFrame(Form)
@@ -52,12 +47,12 @@ class Ui_brightness(object):
         self.save.setIcon(icon)
         self.save.setObjectName("save")
         self.save.clicked.connect(self.img_save)
-        self.discarded = QtWidgets.QPushButton(self.frame)
-        self.discarded.setGeometry(QtCore.QRect(598, 4, 121, 41))
+        self.discard = QtWidgets.QPushButton(self.frame)
+        self.discard.setGeometry(QtCore.QRect(598, 4, 121, 41))
         icon = QtGui.QIcon.fromTheme("edit-clear")
-        self.discarded.setIcon(icon)
-        self.discarded.setObjectName("discarded")
-        self.discarded.clicked.connect(self.img_discard)
+        self.discard.setIcon(icon)
+        self.discard.setObjectName("discard")
+        self.discard.clicked.connect(self.img_discard)
         self.heading = QtWidgets.QLabel(self.frame)
         self.heading.setGeometry(QtCore.QRect(6, 6, 371, 41))
         font = QtGui.QFont()
@@ -66,7 +61,6 @@ class Ui_brightness(object):
         self.heading.setFont(font)
         self.heading.setAlignment(QtCore.Qt.AlignmentFlag.AlignCenter)
         self.heading.setObjectName("heading")
-        self.heading.setText("Sharpness")
         self.verticalLayout.addWidget(self.frame, 0, QtCore.Qt.AlignmentFlag.AlignTop)
         self.frame_2 = QtWidgets.QFrame(Form)
         sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Policy.Expanding, QtWidgets.QSizePolicy.Policy.Expanding)
@@ -81,65 +75,73 @@ class Ui_brightness(object):
         self.label.setGeometry(QtCore.QRect(70, 20, 451, 491))
         self.label.setText("")
         self.label.setObjectName("label")
-        
-        pixmap = QtGui.QPixmap(fname)
-        print(pixmap)
-        self.label.setPixmap(pixmap)
-        
-        self.label.setScaledContents(True)
         self.ui = QtWidgets.QFrame(self.frame_2)
         self.ui.setGeometry(QtCore.QRect(590, 0, 281, 541))
         self.ui.setFrameShape(QtWidgets.QFrame.Shape.StyledPanel)
+        
+        pixmap = QtGui.QPixmap(fname)
+        self.label.setPixmap(pixmap)
+        self.label.setScaledContents(True)
         self.ui.setFrameShadow(QtWidgets.QFrame.Shadow.Raised)
         self.ui.setObjectName("ui")
-        self.verticalSlider = QtWidgets.QSlider(self.ui)
-        self.verticalSlider.setGeometry(QtCore.QRect(130, 50, 20, 231))
-        self.verticalSlider.setOrientation(QtCore.Qt.Orientation.Vertical)
-        self.verticalSlider.setObjectName("verticalSlider")
-        self.verticalSlider.valueChanged.connect(self.update_image)
         self.reset = QtWidgets.QPushButton(self.ui)
         self.reset.setGeometry(QtCore.QRect(80, 310, 131, 41))
-        icon = QtGui.QIcon.fromTheme("document-open")
+        icon = QtGui.QIcon.fromTheme("system-reboot")
         self.reset.setIcon(icon)
         self.reset.setObjectName("reset")
         self.reset.clicked.connect(self.img_reset)
         self.compare = QtWidgets.QPushButton(self.ui)
         self.compare.setGeometry(QtCore.QRect(78, 384, 131, 41))
-        icon = QtGui.QIcon.fromTheme("system-reboot")
+        icon = QtGui.QIcon.fromTheme("document-open")
         self.compare.setIcon(icon)
         self.compare.setObjectName("compare")
-        
+        self.scientific = QtWidgets.QPushButton(self.ui)
+        self.scientific.setGeometry(QtCore.QRect(80, 240, 131, 41))
+        icon = QtGui.QIcon.fromTheme("zoom-fit-best")
+        self.scientific.setIcon(icon)
+        self.scientific.setObjectName("scientific")
+        self.scientific.clicked.connect(self.img_scientific)
+        self.artistic = QtWidgets.QPushButton(self.ui)
+        self.artistic.setGeometry(QtCore.QRect(80, 170, 131, 41))
+        icon = QtGui.QIcon.fromTheme("weather-clear")
+        self.artistic.setIcon(icon)
+        self.artistic.setObjectName("artistic")
+        self.artistic.clicked.connect(self.img_artistic)
         self.verticalLayout.addWidget(self.frame_2)
 
         self.retranslateUi(Form)
         QtCore.QMetaObject.connectSlotsByName(Form)
+
     def img_reset(self):
         isThere = os.path.exists(name)
         if isThere==True:
             os.remove(name)
-        pixmap = QtGui.QPixmap(fname)
-        self.verticalSlider.setValue(0)
-        self.label.setPixmap(pixmap)
-        self.label.setScaledContents(True)
-        
-    def update_image(self, value):
+    
+    def img_artistic(self):
         isThere = os.path.exists(name)
         if isThere==False:
-             img = Image.open(fname)
-             img = img.save(name)
-        i = cv2.imread(name)
-        out = image_processing.increase_brightness(i,value)
-        cv2.imwrite(name,out)
+            img = Image.open(fname)
+            img = img.save(name)
         pixmap = QtGui.QPixmap(name)
         self.label.setPixmap(pixmap)
         self.label.setScaledContents(True)
+
+    def img_scientific(self):
+        isThere = os.path.exists(name)
+        if isThere==False:
+            img = Image.open(fname)
+            img = img.save(name)
+        pixmap = QtGui.QPixmap(name)
+        self.label.setPixmap(pixmap)
+        self.label.setScaledContents(True)
+
     def img_save(self):
+        img = Image.open(name)
+        img = img.save(fname)
         global val
         val=val+1
         isThere = os.path.exists(name)
         if isThere==True:
-            img = Image.open(name)
-            img = img.save(fname)
             os.remove(name)
         Edit.img_saved(self,wid,pfile,fname,val)
     def img_discard(self):
@@ -156,17 +158,19 @@ class Ui_brightness(object):
         _translate = QtCore.QCoreApplication.translate
         Form.setWindowTitle(_translate("Form", "Form"))
         self.save.setText(_translate("Form", "Save"))
-        self.discarded.setText(_translate("Form", "Discard"))
-        self.heading.setText(_translate("Form", "Brightness"))
+        self.discard.setText(_translate("Form", "Discard"))
+        self.heading.setText(_translate("Form", "Auto Enhance"))
         self.reset.setText(_translate("Form", "Reset"))
         self.compare.setText(_translate("Form", "Compare"))
+        self.scientific.setText(_translate("Form", "Scientific"))
+        self.artistic.setText(_translate("Form", "Artistic"))
 
 
 if __name__ == "__main__":
     import sys
     app = QtWidgets.QApplication(sys.argv)
     Form = QtWidgets.QWidget()
-    ui = Ui_brightness()
+    ui = Ui_autoenhance()
     ui.setupUi(Form)
     Form.show()
     sys.exit(app.exec())

@@ -2,10 +2,9 @@ from PyQt6 import QtCore, QtGui, QtWidgets
 from PIL import Image
 import os
 import cv2
-import image_processing
 from navigate.navigate import Edit
 
-class Ui_brightness(object):
+class Ui_Noise(object):
     
     def setupUi(self, Form,File,x):
         global val
@@ -15,7 +14,7 @@ class Ui_brightness(object):
         global pfile
         pfile=File
         global name
-        name="Temp/brightness.png"
+        name="Temp/noise.png"
         Form.setObjectName("Form")
         Form.resize(889, 612)
         Form.setStyleSheet("*{border:none;\n"
@@ -34,10 +33,6 @@ class Ui_brightness(object):
         if isExist==False:
             img = Image.open(File)
             img = img.save(fname)
-        isThere = os.path.exists(name)
-        if isThere==False:
-            img = Image.open(fname)
-            img = img.save(name)
         self.verticalLayout = QtWidgets.QVBoxLayout(Form)
         self.verticalLayout.setObjectName("verticalLayout")
         self.frame = QtWidgets.QFrame(Form)
@@ -83,9 +78,7 @@ class Ui_brightness(object):
         self.label.setObjectName("label")
         
         pixmap = QtGui.QPixmap(fname)
-        print(pixmap)
         self.label.setPixmap(pixmap)
-        
         self.label.setScaledContents(True)
         self.ui = QtWidgets.QFrame(self.frame_2)
         self.ui.setGeometry(QtCore.QRect(590, 0, 281, 541))
@@ -121,27 +114,29 @@ class Ui_brightness(object):
         self.verticalSlider.setValue(0)
         self.label.setPixmap(pixmap)
         self.label.setScaledContents(True)
-        
+    
     def update_image(self, value):
         isThere = os.path.exists(name)
         if isThere==False:
-             img = Image.open(fname)
-             img = img.save(name)
+            img = Image.open(fname)
+            img = img.save(name)
         i = cv2.imread(name)
-        out = image_processing.increase_brightness(i,value)
-        cv2.imwrite(name,out)
+        dst = cv2.fastNlMeansDenoising(i,None,value*0.2,7,21)
+        cv2.imwrite(name,dst)
         pixmap = QtGui.QPixmap(name)
         self.label.setPixmap(pixmap)
         self.label.setScaledContents(True)
+    
     def img_save(self):
+        img = Image.open(name)
+        img = img.save(fname)
         global val
         val=val+1
         isThere = os.path.exists(name)
         if isThere==True:
-            img = Image.open(name)
-            img = img.save(fname)
             os.remove(name)
         Edit.img_saved(self,wid,pfile,fname,val)
+    
     def img_discard(self):
         print(val)
         if val==0:
@@ -151,13 +146,14 @@ class Ui_brightness(object):
         if isThere==True:
             os.remove(name)
         Edit.img_discarded(self,wid,pfile,fname,val)
+        
 
     def retranslateUi(self, Form):
         _translate = QtCore.QCoreApplication.translate
         Form.setWindowTitle(_translate("Form", "Form"))
         self.save.setText(_translate("Form", "Save"))
         self.discarded.setText(_translate("Form", "Discard"))
-        self.heading.setText(_translate("Form", "Brightness"))
+        self.heading.setText(_translate("Form", "Noise Reduction"))
         self.reset.setText(_translate("Form", "Reset"))
         self.compare.setText(_translate("Form", "Compare"))
 
@@ -166,7 +162,7 @@ if __name__ == "__main__":
     import sys
     app = QtWidgets.QApplication(sys.argv)
     Form = QtWidgets.QWidget()
-    ui = Ui_brightness()
+    ui = Ui_Noise()
     ui.setupUi(Form)
     Form.show()
     sys.exit(app.exec())
