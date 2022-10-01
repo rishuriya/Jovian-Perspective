@@ -94,6 +94,7 @@ class Ui_Form(object):
         self.auto_2 = QtWidgets.QPushButton(self.ui)
         self.auto_2.setGeometry(QtCore.QRect(40, 130, 121, 61))
         self.auto_2.setObjectName("auto_2")
+        self.auto_2.clicked.connect(self.open_autoenhance)
         self.sharpness = QtWidgets.QPushButton(self.ui)
         self.sharpness.setGeometry(QtCore.QRect(40, 220, 121, 61))
         self.sharpness.setObjectName("sharpness")
@@ -177,27 +178,21 @@ class Ui_Form(object):
         self.retranslateUi(Form)
         QtCore.QMetaObject.connectSlotsByName(Form)
 
-        
+    def open_autoenhance(self):
+        Url.autoenhance(self,wid,fname,counter)
+
     def open_Sharpness(self):
-        if isExist == True:
-            Url.sharpness(self,wid,fname,counter)
-        else:
-            Url.sharpness(self,wid,fname,counter)
+        Url.sharpness(self,wid,fname,counter)
+        
     def open_Brightness(self):
-        if isExist == True:
-            Url.brightness(self,wid,fname,counter)
-        else:
-            Url.brightness(self,wid,fname,counter)
+        Url.brightness(self,wid,fname,counter)
+        
     def open_Edge(self):
-        if isExist == True:
-            Url.edge(self,wid,fname,counter)
-        else:
-            Url.edge(self,wid,fname,counter)
+        Url.edge(self,wid,fname,counter)
+        
     def open_Colour(self):
-        if isExist == True:
-            Url.colour(self,wid,fname,counter)
-        else:
-            Url.colour(self,wid,fname,counter)
+        Url.colour(self,wid,fname,counter)
+        
     def closeit(self):
         if isExist == True:
             Dialog = QtWidgets.QDialog()

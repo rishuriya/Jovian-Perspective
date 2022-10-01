@@ -3,6 +3,7 @@ from sharpness import Ui_Sharpness
 from edge import Ui_edge
 from colour import Ui_colour
 from brightness import Ui_brightness
+from auto_enchance import Ui_autoenhance
 from PIL import Image
 import os
 class Url:
@@ -27,6 +28,13 @@ class Url:
     def colour(self,Form,name,counter):
         self.window=QtWidgets.QWidget()
         self.ui=Ui_colour()
+        self.ui.setupUi(self.window,name,counter)
+        Form.hide()
+        self.window.show()
+
+    def autoenhance(self,Form,name,counter):
+        self.window=QtWidgets.QWidget()
+        self.ui=Ui_autoenhance()
         self.ui.setupUi(self.window,name,counter)
         Form.hide()
         self.window.show()
