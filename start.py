@@ -1,21 +1,28 @@
 from PyQt6 import QtCore, QtGui, QtWidgets
-from glob import glob
+from datetime import date
 import os
 from Home import Ui_Form
 import urllib.request,json
 class Ui_landing(object):
     def setupUi(self, Form):
-        url='https://api.nasa.gov/planetary/apod?api_key=UX6jrk1RJsuJLm8g7zl4FNJdkOnEBB6kNifpJe5B'
-        filename="Resource/apod.json"
-        imagename="Resource/apod.json"
+        today=date.today()
+        imagename="Resource/{}.png".format(today)
+        if os.path.exists("Resource/{}.png".format(today))==False:
+                url='https://api.nasa.gov/planetary/apod?api_key=UX6jrk1RJsuJLm8g7zl4FNJdkOnEBB6kNifpJe5B'
+                filename="Resource/apod.json"
+                today=date.today()
+                
 #fullpath='{}{}'.format(filepath,filename)
-        urllib.request.urlretrieve(url,filename)
-        f=open('{}'.format(filename))
-        data=json.load(f)
+                urllib.request.urlretrieve(url,filename)
+                f=open('{}'.format(filename))
+                data=json.load(f)
 #print(data)
-        img_url=data["url"]
-        urllib.request.urlretrieve('{}'.format(img_url),imagename)
-        f.close()
+                img_url=data["url"]
+        
+                urllib.request.urlretrieve('{}'.format(img_url),imagename)
+                f.close()
+        if os.path.exists("Temp/temp.png")==True:
+            os.remove("Temp/temp.png")
         Form.setObjectName("Form")
         Form.resize(1200, 768)
         Form.setStyleSheet("*{\n"
