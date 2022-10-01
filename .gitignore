@@ -5,3 +5,4 @@ main.py
 mainwindow.py
 mainwindow.ui
 *.json
+env

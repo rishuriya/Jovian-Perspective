@@ -1,9 +1,10 @@
 from PyQt6 import QtCore, QtGui, QtWidgets
 from PIL import Image
 import os
-
+import cv2
 from navigate.navigate import Edit
-
+import image_processing
+import math
 class Ui_edge(object):
     
     def setupUi(self, Form,File,x):
@@ -28,6 +29,9 @@ class Ui_edge(object):
 "color:#fff}")
         global fname
         fname="Temp/temp.png"
+        image = cv2.imread(File)
+        cv2.imwrite(name,image)
+        cv2.imwrite(fname,image)
         global isExist
         isExist = os.path.exists(fname)
         if isExist==False:
@@ -113,16 +117,26 @@ class Ui_edge(object):
             os.remove(name)
     
     def update_image(self, value):
-        isThere = os.path.exists(name)
-        if isThere==False:
-            img = Image.open(fname)
-            img = img.save(name)
-        pixmap = QtGui.QPixmap(name)
+        # isThere = os.path.exists(name)
+        # if isThere==False:
+        #     img = Image.open(fname)
+        #     img = img.save(name)
+        i = cv2.imread(name)
+        value = math.ceil(value*30/200)
+        if value==0:
+            out = i
+        if value%2==0 and value>0:
+            value = value+1
+        if value!=0:
+            out = image_processing.edgeYSobel(i, value)
+        
+        cv2.imwrite(fname, out)
+        pixmap = QtGui.QPixmap(fname)
         self.label.setPixmap(pixmap)
         self.label.setScaledContents(True)
     def img_save(self):
-        img = Image.open(name)
-        img = img.save(fname)
+        # img = Image.open(name)
+        # img = img.save(fname)
         global val
         val=val+1
         isThere = os.path.exists(name)
