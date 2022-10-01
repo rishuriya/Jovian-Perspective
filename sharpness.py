@@ -1,9 +1,20 @@
-
 from PyQt6 import QtCore, QtGui, QtWidgets
+from PIL import Image
+import os
 
+from navigate.navigate import Edit
 
 class Ui_Sharpness(object):
-    def setupUi(self, Form,File):
+    
+    def setupUi(self, Form,File,x):
+        global val
+        val=x
+        global wid
+        wid = Form
+        global pfile
+        pfile=File
+        global name
+        name="Temp/shapness.png"
         Form.setObjectName("Form")
         Form.resize(889, 612)
         Form.setStyleSheet("*{border:none;\n"
@@ -15,6 +26,13 @@ class Ui_Sharpness(object):
 "QPushButton{\n"
 "background-color:#071e26;\n"
 "color:#fff}")
+        global fname
+        fname="Temp/temp.png"
+        global isExist
+        isExist = os.path.exists(fname)
+        if isExist==False:
+            img = Image.open(File)
+            img = img.save(fname)
         self.verticalLayout = QtWidgets.QVBoxLayout(Form)
         self.verticalLayout.setObjectName("verticalLayout")
         self.frame = QtWidgets.QFrame(Form)
@@ -28,11 +46,13 @@ class Ui_Sharpness(object):
         icon = QtGui.QIcon.fromTheme("document-save")
         self.save.setIcon(icon)
         self.save.setObjectName("save")
-        self.discard = QtWidgets.QPushButton(self.frame)
-        self.discard.setGeometry(QtCore.QRect(598, 4, 121, 41))
+        self.save.clicked.connect(self.img_save)
+        self.discarded = QtWidgets.QPushButton(self.frame)
+        self.discarded.setGeometry(QtCore.QRect(598, 4, 121, 41))
         icon = QtGui.QIcon.fromTheme("edit-clear")
-        self.discard.setIcon(icon)
-        self.discard.setObjectName("discard")
+        self.discarded.setIcon(icon)
+        self.discarded.setObjectName("discarded")
+        self.discarded.clicked.connect(self.img_discard)
         self.heading = QtWidgets.QLabel(self.frame)
         self.heading.setGeometry(QtCore.QRect(6, 6, 371, 41))
         font = QtGui.QFont()
@@ -56,8 +76,7 @@ class Ui_Sharpness(object):
         self.label.setGeometry(QtCore.QRect(70, 20, 451, 491))
         self.label.setText("")
         self.label.setObjectName("label")
-        global fname
-        fname=File
+        
         pixmap = QtGui.QPixmap(fname)
         print(pixmap)
         self.label.setPixmap(pixmap)
@@ -71,29 +90,63 @@ class Ui_Sharpness(object):
         self.verticalSlider.setGeometry(QtCore.QRect(130, 50, 20, 231))
         self.verticalSlider.setOrientation(QtCore.Qt.Orientation.Vertical)
         self.verticalSlider.setObjectName("verticalSlider")
-        self.compare = QtWidgets.QPushButton(self.ui)
-        self.compare.setGeometry(QtCore.QRect(80, 310, 131, 41))
-        icon = QtGui.QIcon.fromTheme("system-reboot")
-        self.compare.setIcon(icon)
-        self.compare.setObjectName("compare")
+        self.verticalSlider.valueChanged.connect(self.update_image)
         self.reset = QtWidgets.QPushButton(self.ui)
-        self.reset.setGeometry(QtCore.QRect(78, 384, 131, 41))
+        self.reset.setGeometry(QtCore.QRect(80, 310, 131, 41))
         icon = QtGui.QIcon.fromTheme("document-open")
         self.reset.setIcon(icon)
         self.reset.setObjectName("reset")
+        self.reset.clicked.connect(self.img_reset)
+        self.compare = QtWidgets.QPushButton(self.ui)
+        self.compare.setGeometry(QtCore.QRect(78, 384, 131, 41))
+        icon = QtGui.QIcon.fromTheme("system-reboot")
+        self.compare.setIcon(icon)
+        self.compare.setObjectName("compare")
+        
         self.verticalLayout.addWidget(self.frame_2)
 
         self.retranslateUi(Form)
         QtCore.QMetaObject.connectSlotsByName(Form)
+    def img_reset(self):
+        print("reset")
+        isThere = os.path.exists(name)
+        if isThere==True:
+            os.remove(name)
+    
+    def update_image(self, value):
+        print(value)
+        isThere = os.path.exists(name)
+        if isThere==False:
+            img = Image.open(fname)
+            img = img.save(name)
+    def img_save(self):
+        img = Image.open(name)
+        img = img.save(fname)
+        global val
+        val=val+1
+        isThere = os.path.exists(name)
+        if isThere==True:
+            os.remove(name)
+        Edit.img_saved(self,wid,pfile,fname,val)
+    def img_discard(self):
+        print(val)
+        if val==0:
+            os.remove(fname)
+            print(pfile)
+        isThere = os.path.exists(name)
+        if isThere==True:
+            os.remove(name)
+        Edit.img_discarded(self,wid,pfile,fname,val)
+        
 
     def retranslateUi(self, Form):
         _translate = QtCore.QCoreApplication.translate
         Form.setWindowTitle(_translate("Form", "Form"))
         self.save.setText(_translate("Form", "Save"))
-        self.discard.setText(_translate("Form", "Discard"))
+        self.discarded.setText(_translate("Form", "Discard"))
         self.heading.setText(_translate("Form", "Sharpness"))
-        self.compare.setText(_translate("Form", "Reset"))
-        self.reset.setText(_translate("Form", "Compare"))
+        self.reset.setText(_translate("Form", "Reset"))
+        self.compare.setText(_translate("Form", "Compare"))
 
 
 if __name__ == "__main__":

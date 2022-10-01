@@ -1,11 +1,17 @@
+from typing import Counter
 from PyQt6 import QtCore, QtGui, QtWidgets
-from sharpness import Ui_Sharpness
-from edge import Ui_edge
-from colour import Ui_colour
-from brightness import Ui_brightness
+
+import os
+
+from navigate.urls import Url
 
 class Ui_Form(object):
-    def setupUi(self, Form,File):
+    def setupUi(self, Form,File,Tfile,x):
+        global wid
+        wid=Form
+        global counter
+        counter=x
+        print(counter)
         Form.setObjectName("Form")
         Form.resize(1200, 768)
         sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Policy.Maximum, QtWidgets.QSizePolicy.Policy.Maximum)
@@ -44,9 +50,11 @@ class Ui_Form(object):
         self.original.setObjectName("original")
 
         global fname
-        fname=File[0]
+        if len(File)==2:
+            fname=File[0]
+        else:
+            fname=File
         pixmap = QtGui.QPixmap(fname)
-        print(pixmap)
         self.original.setPixmap(pixmap)
         self.original.setScaledContents(True)
 
@@ -54,9 +62,15 @@ class Ui_Form(object):
         self.change.setGeometry(QtCore.QRect(710, 90, 451, 501))
         self.change.setText("")
         self.change.setObjectName("change")
-
-        self.change.setPixmap(pixmap)
-        self.change.setScaledContents(True)
+        global tname
+        tname=Tfile
+        global isExist
+        isExist = os.path.exists(tname)
+        if isExist==True:
+            pixmap_change = QtGui.QPixmap(tname)
+            print(pixmap_change)
+            self.change.setPixmap(pixmap_change)
+            self.change.setScaledContents(True)
 
         self.ui = QtWidgets.QFrame(self.frame)
         self.ui.setGeometry(QtCore.QRect(-10, -10, 201, 751))
@@ -101,7 +115,6 @@ class Ui_Form(object):
         self.logo.setObjectName("logo")
 
         pixmap_logo = QtGui.QPixmap("Resource/space-app.png")
-        print(pixmap)
         self.logo.setPixmap(pixmap_logo)
         self.logo.setScaledContents(False)
 
@@ -119,6 +132,7 @@ class Ui_Form(object):
         icon = QtGui.QIcon.fromTheme("edit-clear")
         self.discard.setIcon(icon)
         self.discard.setObjectName("discard")
+        self.discard.clicked.connect(self.closeit)
         self.save = QtWidgets.QPushButton(self.header)
         self.save.setGeometry(QtCore.QRect(850, 10, 121, 41))
         icon = QtGui.QIcon.fromTheme("document-save")
@@ -163,25 +177,27 @@ class Ui_Form(object):
 
         
     def open_Sharpness(self):
-        self.window=QtWidgets.QWidget()
-        self.ui=Ui_Sharpness()
-        self.ui.setupUi(self.window,fname)
-        self.window.show()
+        if isExist == True:
+            Url.sharpness(self,wid,tname,counter)
+        else:
+            Url.sharpness(self,wid,fname,counter)
     def open_Brightness(self):
-        self.window=QtWidgets.QWidget()
-        self.ui=Ui_brightness()
-        self.ui.setupUi(self.window,fname)
-        self.window.show()
+        if isExist == True:
+            Url.brightness(self,wid,tname,counter)
+        else:
+            Url.brightness(self,wid,fname,counter)
     def open_Edge(self):
-        self.window=QtWidgets.QWidget()
-        self.ui=Ui_edge()
-        self.ui.setupUi(self.window,fname)
-        self.window.show()
+        if isExist == True:
+            Url.edge(self,wid,tname,counter)
+        else:
+            Url.edge(self,wid,fname,counter)
     def open_Colour(self):
-        self.window=QtWidgets.QWidget()
-        self.ui=Ui_colour()
-        self.ui.setupUi(self.window,fname)
-        self.window.show()
+        if isExist == True:
+            Url.colour(self,wid,tname,counter)
+        else:
+            Url.colour(self,wid,fname,counter)
+    def closeit(self):
+        QtCore.QCoreApplication.instance().quit()
 
     def retranslateUi(self, Form):
         _translate = QtCore.QCoreApplication.translate
@@ -195,7 +211,8 @@ class Ui_Form(object):
         self.save.setText(_translate("Form", "Save"))
         self.label.setText(_translate("Form", "Perespective"))
         self.label_2.setText(_translate("Form", "Original Image"))
-        self.label_3.setText(_translate("Form", "Processed Image"))
+        if isExist==True:
+            self.label_3.setText(_translate("Form", "Processed Image"))
 
 
 if __name__ == "__main__":

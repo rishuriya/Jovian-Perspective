@@ -57,7 +57,9 @@ class Ui_Widget(object):
     def open_home(self):
         self.window=QtWidgets.QWidget()
         self.ui=Ui_Form()
-        self.ui.setupUi(self.window,fname)
+        Tfile="temp.png"
+        x=0
+        self.ui.setupUi(self.window,fname,Tfile,x)
         Widget.hide()
         self.window.show()
     def open_dialog(self):
@@ -70,7 +72,6 @@ class Ui_Widget(object):
                 )
             
             pixmap = QtGui.QPixmap(fname[0])
-            print(pixmap)
             self.Image.setPixmap(pixmap)
             self.Image.setScaledContents(True)
 
