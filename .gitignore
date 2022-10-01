@@ -5,7 +5,5 @@ main.py
 mainwindow.py
 mainwindow.ui
 *.json
-<<<<<<< HEAD
-=======
 *.pyproject
->>>>>>> 45d80d6ae25b3f0c93e344c6d05856d9b2a51bd1
+*.user

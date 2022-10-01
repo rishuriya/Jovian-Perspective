@@ -58,7 +58,8 @@ color:#fff}</string>
        <string>Save</string>
       </property>
       <property name="icon">
-       <iconset theme="document-save"/>
+       <iconset theme="document-save">
+        <normaloff>.</normaloff>.</iconset>
       </property>
      </widget>
      <widget class="QPushButton" name="discard">
@@ -74,7 +75,8 @@ color:#fff}</string>
        <string>Discard</string>
       </property>
       <property name="icon">
-       <iconset theme="edit-clear"/>
+       <iconset theme="edit-clear">
+        <normaloff>.</normaloff>.</iconset>
       </property>
      </widget>
      <widget class="QLabel" name="heading">
@@ -93,7 +95,7 @@ color:#fff}</string>
        </font>
       </property>
       <property name="text">
-       <string>Sharpness</string>
+       <string>Auto Enhance</string>
       </property>
       <property name="alignment">
        <set>Qt::AlignCenter</set>
@@ -143,20 +145,7 @@ color:#fff}</string>
       <property name="frameShadow">
        <enum>QFrame::Raised</enum>
       </property>
-      <widget class="QSlider" name="verticalSlider">
-       <property name="geometry">
-        <rect>
-         <x>130</x>
-         <y>50</y>
-         <width>20</width>
-         <height>231</height>
-        </rect>
-       </property>
-       <property name="orientation">
-        <enum>Qt::Vertical</enum>
-       </property>
-      </widget>
-      <widget class="QPushButton" name="compare">
+      <widget class="QPushButton" name="reset">
        <property name="geometry">
         <rect>
          <x>80</x>
@@ -169,10 +158,11 @@ color:#fff}</string>
         <string>Reset</string>
        </property>
        <property name="icon">
-        <iconset theme="system-reboot"/>
+        <iconset theme="system-reboot">
+         <normaloff>.</normaloff>.</iconset>
        </property>
       </widget>
-      <widget class="QPushButton" name="reset">
+      <widget class="QPushButton" name="compare">
        <property name="geometry">
         <rect>
          <x>78</x>
@@ -185,7 +175,40 @@ color:#fff}</string>
         <string>Compare</string>
        </property>
        <property name="icon">
-        <iconset theme="document-open"/>
+        <iconset theme="document-open">
+         <normaloff>.</normaloff>.</iconset>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="scientific">
+       <property name="geometry">
+        <rect>
+         <x>80</x>
+         <y>240</y>
+         <width>131</width>
+         <height>41</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Scientific</string>
+       </property>
+       <property name="icon">
+        <iconset theme="zoom-fit-best"/>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="artistic">
+       <property name="geometry">
+        <rect>
+         <x>80</x>
+         <y>170</y>
+         <width>131</width>
+         <height>41</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Artistic</string>
+       </property>
+       <property name="icon">
+        <iconset theme="weather-clear"/>
        </property>
       </widget>
      </widget>

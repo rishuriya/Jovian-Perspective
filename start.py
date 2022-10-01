@@ -57,7 +57,7 @@ class Ui_Widget(object):
     def open_home(self):
         self.window=QtWidgets.QWidget()
         self.ui=Ui_Form()
-        Tfile="temp.png"
+        Tfile="Temp/temp.png"
         x=0
         self.ui.setupUi(self.window,fname,Tfile,x)
         Widget.hide()

@@ -27,16 +27,17 @@ class Ui_edge(object):
 "QPushButton{\n"
 "background-color:#071e26;\n"
 "color:#fff}")
-        global fname
-        fname="Temp/temp.png"
-        image = cv2.imread(File)
-        cv2.imwrite(name,image)
-        cv2.imwrite(fname,image)
+        global tname
+        tname="Temp/temp.png"
         global isExist
-        isExist = os.path.exists(fname)
+        isExist = os.path.exists(tname)
         if isExist==False:
             img = Image.open(File)
-            img = img.save(fname)
+            img = img.save(tname)
+        isThere = os.path.exists(name)
+        if isThere==False:
+            img = Image.open(tname)
+            img = img.save(name)
         self.verticalLayout = QtWidgets.QVBoxLayout(Form)
         self.verticalLayout.setObjectName("verticalLayout")
         self.frame = QtWidgets.QFrame(Form)
@@ -81,7 +82,7 @@ class Ui_edge(object):
         self.label.setText("")
         self.label.setObjectName("label")
         
-        pixmap = QtGui.QPixmap(fname)
+        pixmap = QtGui.QPixmap(tname)
         print(pixmap)
         self.label.setPixmap(pixmap)
         self.label.setScaledContents(True)
@@ -117,11 +118,8 @@ class Ui_edge(object):
             os.remove(name)
     
     def update_image(self, value):
-        # isThere = os.path.exists(name)
-        # if isThere==False:
-        #     img = Image.open(fname)
-        #     img = img.save(name)
-        i = cv2.imread(name)
+        
+        i = cv2.imread(tname)
         value = math.ceil(value*30/200)
         if value==0:
             out = i
@@ -130,28 +128,28 @@ class Ui_edge(object):
         if value!=0:
             out = image_processing.edgeYSobel(i, value)
         
-        cv2.imwrite(fname, out)
-        pixmap = QtGui.QPixmap(fname)
+        cv2.imwrite(name, out)
+        pixmap = QtGui.QPixmap(name)
         self.label.setPixmap(pixmap)
         self.label.setScaledContents(True)
     def img_save(self):
-        # img = Image.open(name)
-        # img = img.save(fname)
         global val
         val=val+1
         isThere = os.path.exists(name)
         if isThere==True:
+            img = Image.open(name)
+            img = img.save(tname)
             os.remove(name)
-        Edit.img_saved(self,wid,pfile,fname,val)
+        Edit.img_saved(self,wid,pfile,tname,val)
     def img_discard(self):
         print(val)
         if val==0:
-            os.remove(fname)
+            os.remove(tname)
             print(pfile)
         isThere = os.path.exists(name)
         if isThere==True:
             os.remove(name)
-        Edit.img_discarded(self,wid,pfile,fname,val)
+        Edit.img_discarded(self,wid,pfile,tname,val)
 
     def retranslateUi(self, Form):
         _translate = QtCore.QCoreApplication.translate

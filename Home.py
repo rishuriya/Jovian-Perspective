@@ -54,6 +54,7 @@ class Ui_Form(object):
             fname=File[0]
         else:
             fname=File
+        print(fname)
         pixmap = QtGui.QPixmap(fname)
         self.original.setPixmap(pixmap)
         self.original.setScaledContents(True)
@@ -179,22 +180,22 @@ class Ui_Form(object):
         
     def open_Sharpness(self):
         if isExist == True:
-            Url.sharpness(self,wid,tname,counter)
+            Url.sharpness(self,wid,fname,counter)
         else:
             Url.sharpness(self,wid,fname,counter)
     def open_Brightness(self):
         if isExist == True:
-            Url.brightness(self,wid,tname,counter)
+            Url.brightness(self,wid,fname,counter)
         else:
             Url.brightness(self,wid,fname,counter)
     def open_Edge(self):
         if isExist == True:
-            Url.edge(self,wid,tname,counter)
+            Url.edge(self,wid,fname,counter)
         else:
             Url.edge(self,wid,fname,counter)
     def open_Colour(self):
         if isExist == True:
-            Url.colour(self,wid,tname,counter)
+            Url.colour(self,wid,fname,counter)
         else:
             Url.colour(self,wid,fname,counter)
     def closeit(self):
