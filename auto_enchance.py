@@ -1,9 +1,9 @@
 from PyQt6 import QtCore, QtGui, QtWidgets
 from PIL import Image
 import os
-
+import cv2
 from navigate.navigate import Edit
-
+import image_processing
 class Ui_autoenhance(object):
 
     def setupUi(self, Form,File,x):
@@ -28,6 +28,9 @@ class Ui_autoenhance(object):
 "color:#fff}")
         global fname
         fname="Temp/temp.png"
+        image = cv2.imread(File)
+        cv2.imwrite(name,image)
+        cv2.imwrite(fname,image)
         global isExist
         isExist = os.path.exists(fname)
         if isExist==False:
@@ -119,10 +122,13 @@ class Ui_autoenhance(object):
     
     def img_artistic(self):
         isThere = os.path.exists(name)
-        if isThere==False:
-            img = Image.open(fname)
-            img = img.save(name)
-        pixmap = QtGui.QPixmap(name)
+        # if isThere==False:
+        #     img = Image.open(fname)
+        #     img = img.save(name)
+        i = cv2.imread(name)
+        out = image_processing.automatic_brightness_and_contrast(i)
+        cv2.imwrite(fname,out)
+        pixmap = QtGui.QPixmap(fname)
         self.label.setPixmap(pixmap)
         self.label.setScaledContents(True)
 
@@ -136,8 +142,8 @@ class Ui_autoenhance(object):
         self.label.setScaledContents(True)
 
     def img_save(self):
-        img = Image.open(name)
-        img = img.save(fname)
+        # img = Image.open(name)
+        # img = img.save(fname)
         global val
         val=val+1
         isThere = os.path.exists(name)

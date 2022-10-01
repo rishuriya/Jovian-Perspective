@@ -3,6 +3,7 @@ from PIL import Image
 import os
 import cv2
 from navigate.navigate import Edit
+import image_processing
 
 class Ui_Noise(object):
     
@@ -29,6 +30,9 @@ class Ui_Noise(object):
         global fname
         fname="Temp/temp.png"
         global isExist
+        image = cv2.imread(File)
+        cv2.imwrite(name,image)
+        cv2.imwrite(fname,image)
         isExist = os.path.exists(fname)
         if isExist==False:
             img = Image.open(File)
@@ -117,19 +121,19 @@ class Ui_Noise(object):
     
     def update_image(self, value):
         isThere = os.path.exists(name)
-        if isThere==False:
-            img = Image.open(fname)
-            img = img.save(name)
+        # if isThere==False:
+        #     img = Image.open(fname)
+        #     img = img.save(name)
         i = cv2.imread(name)
         dst = cv2.fastNlMeansDenoising(i,None,value*0.2,7,21)
-        cv2.imwrite(name,dst)
-        pixmap = QtGui.QPixmap(name)
+        cv2.imwrite(fname,dst)
+        pixmap = QtGui.QPixmap(fname)
         self.label.setPixmap(pixmap)
         self.label.setScaledContents(True)
     
     def img_save(self):
-        img = Image.open(name)
-        img = img.save(fname)
+        # img = Image.open(name)
+        # img = img.save(fname)
         global val
         val=val+1
         isThere = os.path.exists(name)
