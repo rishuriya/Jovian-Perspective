@@ -108,17 +108,18 @@ class Ui_edge(object):
         self.retranslateUi(Form)
         QtCore.QMetaObject.connectSlotsByName(Form)
     def img_reset(self):
-        print("reset")
         isThere = os.path.exists(name)
         if isThere==True:
             os.remove(name)
     
     def update_image(self, value):
-        print(value)
         isThere = os.path.exists(name)
         if isThere==False:
             img = Image.open(fname)
             img = img.save(name)
+        pixmap = QtGui.QPixmap(name)
+        self.label.setPixmap(pixmap)
+        self.label.setScaledContents(True)
     def img_save(self):
         img = Image.open(name)
         img = img.save(fname)

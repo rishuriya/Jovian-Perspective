@@ -119,6 +119,9 @@ class Ui_brightness(object):
         if isThere==False:
             img = Image.open(fname)
             img = img.save(name)
+        pixmap = QtGui.QPixmap(name)
+        self.label.setPixmap(pixmap)
+        self.label.setScaledContents(True)
     def img_save(self):
         img = Image.open(name)
         img = img.save(fname)

@@ -78,7 +78,6 @@ class Ui_Sharpness(object):
         self.label.setObjectName("label")
         
         pixmap = QtGui.QPixmap(fname)
-        print(pixmap)
         self.label.setPixmap(pixmap)
         self.label.setScaledContents(True)
         self.ui = QtWidgets.QFrame(self.frame_2)
@@ -114,11 +113,13 @@ class Ui_Sharpness(object):
             os.remove(name)
     
     def update_image(self, value):
-        print(value)
         isThere = os.path.exists(name)
         if isThere==False:
             img = Image.open(fname)
             img = img.save(name)
+        pixmap = QtGui.QPixmap(name)
+        self.label.setPixmap(pixmap)
+        self.label.setScaledContents(True)
     def img_save(self):
         img = Image.open(name)
         img = img.save(fname)
