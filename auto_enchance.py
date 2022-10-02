@@ -129,7 +129,7 @@ class Ui_autoenhance(object):
         self.label.setScaledContents(True)
 
     def img_enhance_2(self):
-        out = image_processing.automatic_brightness_and_contrast(fname)
+        out = image_processing.equalize_this(fname)
         cv2.imwrite(name,out)
         pixmap = QtGui.QPixmap(name)
         self.label.setPixmap(pixmap)

@@ -120,6 +120,15 @@ def gauss_diff(image, kernel_size=5):
     # diff = cv2.absdiff(gray, gauss)
     return img_unsharp
 
+# enhance2
+def read_this(image_file, gray_scale=False):
+    image_src = cv2.imread(image_file)
+    if gray_scale:
+        image_src = cv2.cvtColor(image_src, cv2.COLOR_BGR2GRAY)
+    else:
+        image_src = cv2.cvtColor(image_src, cv2.COLOR_BGR2RGB)
+    return image_src
+
 def equalize_this(image_file, with_plot=False, gray_scale=False):
     image_src = read_this(image_file=image_file, gray_scale=gray_scale)
     if not gray_scale:
