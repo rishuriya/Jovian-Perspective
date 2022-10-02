@@ -11,7 +11,7 @@ To deploy this project, make an empty directory named 'Temp', make sure you have
 ```bash
     pip install -r requirements.txt
 ```
-To run the project, run the following command 
+To run the project, use the following command 
 
 ```bash
     python start.py
