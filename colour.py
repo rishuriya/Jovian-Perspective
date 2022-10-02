@@ -1,9 +1,9 @@
 from PyQt6 import QtCore, QtGui, QtWidgets
 from PIL import Image
 import os
-
+import cv2
 from navigate.navigate import Edit
-
+import image_processing
 class Ui_colour(object):
     
     def setupUi(self,Form,File,x):
@@ -187,9 +187,12 @@ class Ui_colour(object):
         b_value  = self.b_slider.value()
         print(r_value,g_value,b_value)
         isThere = os.path.exists(name)
+        i = cv2.imread(fname)
         if isThere==False:
             img = Image.open(fname)
             img = img.save(name)
+        out = image_processing.RGBvariation(i,r_value,g_value,b_value)
+        cv2.imwrite(name,out)
         pixmap = QtGui.QPixmap(name)
         self.textEdit_2.setText(str(g_value))
         self.textEdit_3.setText(str(b_value))

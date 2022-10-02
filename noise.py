@@ -142,15 +142,15 @@ class Ui_Noise(object):
              img = img.save(name)
         i = cv2.imread(fname)
         dst = cv2.fastNlMeansDenoising(i,None,val_value,7,21)
-        cv2.imwrite(fname,dst)
+        cv2.imwrite(name,dst)
         pixmap = QtGui.QPixmap(name)
         self.textEdit.setText(str(value))
         self.label.setPixmap(pixmap)
         self.label.setScaledContents(True)
     
     def img_save(self):
-        # img = Image.open(name)
-        # img = img.save(fname)
+        img = Image.open(name)
+        img = img.save(fname)
         global val
         val=val+1
         isThere = os.path.exists(name)
