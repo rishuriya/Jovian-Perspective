@@ -77,15 +77,11 @@ python start.py
 <table>
     <tr>
     <td align="center"><a href="https://github.com/rishuriya"><img src="https://avatars.githubusercontent.com/u/85174423?v=4" width="100px;" alt=""/><br /><sub><b>Rishav Kumar</b></sub></a><br /></td>
-    </tr>
-        <tr>
-    <td align="center"><a href="https://github.com/Harikrishna-AL"><img src="https://avatars.githubusercontent.com/u/85174423?v=4" width="100px;" alt=""/><br /><sub><b>Harikrishna Pillai</b></sub></a><br /></td>
-    </tr>
-        <tr>
-    <td align="center"><a href="https://github.com/Pakhi07"><img src="https://avatars.githubusercontent.com/u/85174423?v=4" width="100px;" alt=""/><br /><sub><b>Pakhi Banchalia</b></sub></a><br /></td>
-    </tr>
-        <tr>
-    <td align="center"><a href="https://github.com/yasharora102"><img src="https://avatars.githubusercontent.com/u/85174423?v=4" width="100px;" alt=""/><br /><sub><b>Yash Arora</b></sub></a><br /></td>
+    <td align="center"><a href="https://github.com/Harikrishna-AL"><img src="https://avatars.githubusercontent.com/u/91690484?v=4" width="100px;" alt=""/><br /><sub><b>Harikrishna Pillai</b></sub></a><br /></td>
+
+    <td align="center"><a href="https://github.com/Pakhi07"><img src="https://avatars.githubusercontent.com/u/92666755?v=4" width="100px;" alt=""/><br /><sub><b>Pakhi Banchalia</b></sub></a><br /></td>
+
+    <td align="center"><a href="https://github.com/yasharora102"><img src="https://avatars.githubusercontent.com/u/29159814?v=4" width="100px;" alt=""/><br /><sub><b>Yash Arora</b></sub></a><br /></td>
     </tr>
 </table>
 
