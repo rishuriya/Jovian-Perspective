@@ -100,7 +100,7 @@ class Ui_autoenhance(object):
         icon = QtGui.QIcon.fromTheme("zoom-fit-best")
         self.enhance_2.setIcon(icon)
         self.enhance_2.setObjectName("enhance_2")
-        self.enhance_2.clicked.connect(self.img_scientific)
+        self.enhance_2.clicked.connect(self.img_enhance_2)
         self.enhance_1 = QtWidgets.QPushButton(self.ui)
         self.enhance_1.setGeometry(QtCore.QRect(80, 170, 131, 41))
         icon = QtGui.QIcon.fromTheme("weather-clear")
