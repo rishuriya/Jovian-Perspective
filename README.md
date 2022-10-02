@@ -74,6 +74,19 @@ python start.py
     ![image](https://user-images.githubusercontent.com/91690484/193458962-31031598-333f-46b3-827b-030434555320.png)
 
 ## Team Members
-
+<table>
+    <tr>
+    <td align="center"><a href="https://github.com/rishuriya"><img src="https://avatars.githubusercontent.com/u/85174423?v=4" width="100px;" alt=""/><br /><sub><b>Rishav Kumar</b></sub></a><br /></td>
+    </tr>
+        <tr>
+    <td align="center"><a href="https://github.com/Harikrishna-AL"><img src="https://avatars.githubusercontent.com/u/85174423?v=4" width="100px;" alt=""/><br /><sub><b>Harikrishna Pillai</b></sub></a><br /></td>
+    </tr>
+        <tr>
+    <td align="center"><a href="https://github.com/Pakhi07"><img src="https://avatars.githubusercontent.com/u/85174423?v=4" width="100px;" alt=""/><br /><sub><b>Pakhi Banchalia</b></sub></a><br /></td>
+    </tr>
+        <tr>
+    <td align="center"><a href="https://github.com/yasharora102"><img src="https://avatars.githubusercontent.com/u/85174423?v=4" width="100px;" alt=""/><br /><sub><b>Yash Arora</b></sub></a><br /></td>
+    </tr>
+</table>
 
 
