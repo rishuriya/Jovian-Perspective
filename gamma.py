@@ -122,7 +122,6 @@ class Ui_gamma(object):
             os.remove(name)
         self.verticalSlider.setValue(0)
     def update_value(self):
-        
         change_val=self.textEdit.toPlainText()
         change_val=int(change_val)
         self.verticalSlider.setValue(change_val)

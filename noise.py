@@ -30,13 +30,14 @@ class Ui_Noise(object):
         global fname
         fname="Temp/temp.png"
         global isExist
-        image = cv2.imread(File)
-        cv2.imwrite(name,image)
-        cv2.imwrite(fname,image)
         isExist = os.path.exists(fname)
         if isExist==False:
             img = Image.open(File)
             img = img.save(fname)
+        isThere = os.path.exists(name)
+        if isThere==False:
+            img = Image.open(fname)
+            img = img.save(name)
         self.verticalLayout = QtWidgets.QVBoxLayout(Form)
         self.verticalLayout.setObjectName("verticalLayout")
         self.frame = QtWidgets.QFrame(Form)
@@ -94,6 +95,15 @@ class Ui_Noise(object):
         self.verticalSlider.setOrientation(QtCore.Qt.Orientation.Vertical)
         self.verticalSlider.setObjectName("verticalSlider")
         self.verticalSlider.valueChanged.connect(self.update_image)
+        self.textEdit = QtWidgets.QTextEdit(self.ui)
+        self.textEdit.setGeometry(QtCore.QRect(170, 150, 61, 31))
+        self.textEdit.setStyleSheet("*{\n"
+"background-color:rgb(97, 53, 131);\n"
+"border-width:10px\n"
+"}")
+        self.textEdit.setText("0")
+        self.textEdit.setObjectName("textEdit")
+        self.textEdit.textChanged.connect(self.update_value)
         self.reset = QtWidgets.QPushButton(self.ui)
         self.reset.setGeometry(QtCore.QRect(80, 310, 131, 41))
         icon = QtGui.QIcon.fromTheme("document-open")
@@ -119,15 +129,21 @@ class Ui_Noise(object):
         self.label.setPixmap(pixmap)
         self.label.setScaledContents(True)
     
+    def update_value(self):
+        change_val=self.textEdit.toPlainText()
+        change_val=int(change_val)
+        self.verticalSlider.setValue(change_val)
+
     def update_image(self, value):
         isThere = os.path.exists(name)
-        # if isThere==False:
-        #     img = Image.open(fname)
-        #     img = img.save(name)
-        i = cv2.imread(name)
+        if isThere==False:
+             img = Image.open(fname)
+             img = img.save(name)
+        i = cv2.imread(fname)
         dst = cv2.fastNlMeansDenoising(i,None,value*0.2,7,21)
         cv2.imwrite(fname,dst)
-        pixmap = QtGui.QPixmap(fname)
+        pixmap = QtGui.QPixmap(name)
+        self.textEdit.setText(str(value))
         self.label.setPixmap(pixmap)
         self.label.setScaledContents(True)
     

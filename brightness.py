@@ -97,6 +97,15 @@ class Ui_brightness(object):
         self.verticalSlider.setOrientation(QtCore.Qt.Orientation.Vertical)
         self.verticalSlider.setObjectName("verticalSlider")
         self.verticalSlider.valueChanged.connect(self.update_image)
+        self.textEdit = QtWidgets.QTextEdit(self.ui)
+        self.textEdit.setGeometry(QtCore.QRect(170, 150, 61, 31))
+        self.textEdit.setStyleSheet("*{\n"
+"background-color:rgb(97, 53, 131);\n"
+"border-width:10px\n"
+"}")
+        self.textEdit.setText("0")
+        self.textEdit.setObjectName("textEdit")
+        self.textEdit.textChanged.connect(self.update_value)
         self.reset = QtWidgets.QPushButton(self.ui)
         self.reset.setGeometry(QtCore.QRect(80, 310, 131, 41))
         icon = QtGui.QIcon.fromTheme("document-open")
@@ -121,17 +130,23 @@ class Ui_brightness(object):
         self.verticalSlider.setValue(0)
         self.label.setPixmap(pixmap)
         self.label.setScaledContents(True)
+
+    def update_value(self):
+        change_val=self.textEdit.toPlainText()
+        change_val=int(change_val)
+        self.verticalSlider.setValue(change_val)
         
     def update_image(self, value):
-        print(value)
-        i = cv2.imread(name)
-        out = image_processing.increase_brightness(i,value)
-        cv2.imwrite(fname,out)
-        isThere = os.path.exists(fname)
+        isThere = os.path.exists(name)
         if isThere==False:
              img = Image.open(fname)
              img = img.save(name)
-        pixmap = QtGui.QPixmap(fname)
+        i = cv2.imread(fname)
+        out = image_processing.increase_brightness(i,value)
+        cv2.imwrite(name,out)
+        
+        pixmap = QtGui.QPixmap(name)
+        self.textEdit.setText(str(value))
         self.label.setPixmap(pixmap)
         self.label.setScaledContents(True)
     def img_save(self):
