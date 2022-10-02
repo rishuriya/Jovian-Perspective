@@ -24,23 +24,120 @@ color:#000;
 background-color:rgb(36, 31, 49)
 }</string>
   </property>
-  <layout class="QHBoxLayout" name="horizontalLayout">
-   <property name="rightMargin">
-    <number>0</number>
+  <widget class="QFrame" name="frame_6">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>1200</width>
+     <height>768</height>
+    </rect>
    </property>
-   <item alignment="Qt::AlignLeft">
-    <widget class="QFrame" name="banner">
-     <property name="minimumSize">
-      <size>
-       <width>300</width>
-       <height>0</height>
-      </size>
+   <property name="frameShape">
+    <enum>QFrame::StyledPanel</enum>
+   </property>
+   <property name="frameShadow">
+    <enum>QFrame::Raised</enum>
+   </property>
+   <widget class="QFrame" name="banner">
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>0</y>
+      <width>300</width>
+      <height>750</height>
+     </rect>
+    </property>
+    <property name="minimumSize">
+     <size>
+      <width>300</width>
+      <height>0</height>
+     </size>
+    </property>
+    <property name="maximumSize">
+     <size>
+      <width>300</width>
+      <height>16777215</height>
+     </size>
+    </property>
+    <property name="frameShape">
+     <enum>QFrame::StyledPanel</enum>
+    </property>
+    <property name="frameShadow">
+     <enum>QFrame::Raised</enum>
+    </property>
+    <widget class="QLabel" name="banner_label">
+     <property name="geometry">
+      <rect>
+       <x>0</x>
+       <y>0</y>
+       <width>291</width>
+       <height>768</height>
+      </rect>
      </property>
-     <property name="maximumSize">
-      <size>
-       <width>300</width>
-       <height>16777215</height>
-      </size>
+     <property name="text">
+      <string/>
+     </property>
+    </widget>
+   </widget>
+   <widget class="QFrame" name="frame">
+    <property name="geometry">
+     <rect>
+      <x>310</x>
+      <y>0</y>
+      <width>161</width>
+      <height>768</height>
+     </rect>
+    </property>
+    <property name="frameShape">
+     <enum>QFrame::StyledPanel</enum>
+    </property>
+    <property name="frameShadow">
+     <enum>QFrame::Raised</enum>
+    </property>
+    <widget class="QLabel" name="banner_label_2">
+     <property name="geometry">
+      <rect>
+       <x>0</x>
+       <y>10</y>
+       <width>151</width>
+       <height>768</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+    </widget>
+   </widget>
+   <widget class="QFrame" name="frame_2">
+    <property name="geometry">
+     <rect>
+      <x>320</x>
+      <y>0</y>
+      <width>885</width>
+      <height>750</height>
+     </rect>
+    </property>
+    <property name="sizePolicy">
+     <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+      <horstretch>0</horstretch>
+      <verstretch>0</verstretch>
+     </sizepolicy>
+    </property>
+    <property name="frameShape">
+     <enum>QFrame::StyledPanel</enum>
+    </property>
+    <property name="frameShadow">
+     <enum>QFrame::Raised</enum>
+    </property>
+    <widget class="QFrame" name="frame_3">
+     <property name="geometry">
+      <rect>
+       <x>140</x>
+       <y>0</y>
+       <width>501</width>
+       <height>80</height>
+      </rect>
      </property>
      <property name="frameShape">
       <enum>QFrame::StyledPanel</enum>
@@ -48,28 +145,34 @@ background-color:rgb(36, 31, 49)
      <property name="frameShadow">
       <enum>QFrame::Raised</enum>
      </property>
-     <widget class="QLabel" name="banner_label">
+     <widget class="QLabel" name="label_6">
       <property name="geometry">
        <rect>
         <x>0</x>
         <y>0</y>
-        <width>291</width>
-        <height>768</height>
+        <width>521</width>
+        <height>71</height>
        </rect>
       </property>
+      <property name="font">
+       <font>
+        <family>Ubuntu Condensed</family>
+        <pointsize>36</pointsize>
+       </font>
+      </property>
       <property name="text">
-       <string/>
+       <string>Team Perspective</string>
       </property>
      </widget>
     </widget>
-   </item>
-   <item>
-    <widget class="QFrame" name="frame_2">
-     <property name="sizePolicy">
-      <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
-       <horstretch>0</horstretch>
-       <verstretch>0</verstretch>
-      </sizepolicy>
+    <widget class="QFrame" name="frame_5">
+     <property name="geometry">
+      <rect>
+       <x>159</x>
+       <y>79</y>
+       <width>931</width>
+       <height>931</height>
+      </rect>
      </property>
      <property name="frameShape">
       <enum>QFrame::StyledPanel</enum>
@@ -77,76 +180,25 @@ background-color:rgb(36, 31, 49)
      <property name="frameShadow">
       <enum>QFrame::Raised</enum>
      </property>
-     <widget class="QFrame" name="frame">
+     <widget class="QLabel" name="label_7">
       <property name="geometry">
        <rect>
-        <x>-1</x>
+        <x>70</x>
         <y>0</y>
-        <width>161</width>
-        <height>768</height>
+        <width>251</width>
+        <height>21</height>
        </rect>
       </property>
-      <property name="frameShape">
-       <enum>QFrame::StyledPanel</enum>
+      <property name="text">
+       <string>Junocam Images</string>
       </property>
-      <property name="frameShadow">
-       <enum>QFrame::Raised</enum>
-      </property>
-      <widget class="QLabel" name="banner_label_2">
-       <property name="geometry">
-        <rect>
-         <x>0</x>
-         <y>10</y>
-         <width>151</width>
-         <height>768</height>
-        </rect>
-       </property>
-       <property name="text">
-        <string/>
-       </property>
-      </widget>
-     </widget>
-     <widget class="QFrame" name="frame_3">
-      <property name="geometry">
-       <rect>
-        <x>20</x>
-        <y>0</y>
-        <width>351</width>
-        <height>80</height>
-       </rect>
-      </property>
-      <property name="frameShape">
-       <enum>QFrame::StyledPanel</enum>
-      </property>
-      <property name="frameShadow">
-       <enum>QFrame::Raised</enum>
-      </property>
-      <widget class="QLabel" name="label_6">
-       <property name="geometry">
-        <rect>
-         <x>10</x>
-         <y>0</y>
-         <width>331</width>
-         <height>71</height>
-        </rect>
-       </property>
-       <property name="font">
-        <font>
-         <family>Ubuntu Condensed</family>
-         <pointsize>36</pointsize>
-        </font>
-       </property>
-       <property name="text">
-        <string>Team Perspective</string>
-       </property>
-      </widget>
      </widget>
      <widget class="QFrame" name="frame_4">
       <property name="geometry">
        <rect>
-        <x>440</x>
-        <y>10</y>
-        <width>441</width>
+        <x>460</x>
+        <y>290</y>
+        <width>261</width>
         <height>71</height>
        </rect>
       </property>
@@ -168,7 +220,7 @@ color:#fff
       <widget class="QPushButton" name="quit">
        <property name="geometry">
         <rect>
-         <x>150</x>
+         <x>10</x>
          <y>10</y>
          <width>111</width>
          <height>51</height>
@@ -185,7 +237,7 @@ color:#fff
       <widget class="QPushButton" name="select">
        <property name="geometry">
         <rect>
-         <x>280</x>
+         <x>130</x>
          <y>10</y>
          <width>121</width>
          <height>51</height>
@@ -200,73 +252,26 @@ color:#fff
        </property>
       </widget>
      </widget>
-     <widget class="QFrame" name="frame_5">
-      <property name="geometry">
-       <rect>
-        <x>159</x>
-        <y>79</y>
-        <width>931</width>
-        <height>931</height>
-       </rect>
-      </property>
-      <property name="frameShape">
-       <enum>QFrame::StyledPanel</enum>
-      </property>
-      <property name="frameShadow">
-       <enum>QFrame::Raised</enum>
-      </property>
-      <widget class="QLabel" name="label">
-       <property name="geometry">
-        <rect>
-         <x>100</x>
-         <y>80</y>
-         <width>421</width>
-         <height>431</height>
-        </rect>
-       </property>
-       <property name="text">
-        <string/>
-       </property>
-      </widget>
-      <widget class="QLabel" name="label_7">
-       <property name="geometry">
-        <rect>
-         <x>0</x>
-         <y>0</y>
-         <width>251</width>
-         <height>21</height>
-        </rect>
-       </property>
-       <property name="text">
-        <string>Junocam Images</string>
-       </property>
-      </widget>
-      <widget class="QLabel" name="label_2">
-       <property name="geometry">
-        <rect>
-         <x>130</x>
-         <y>510</y>
-         <width>381</width>
-         <height>71</height>
-        </rect>
-       </property>
-       <property name="font">
-        <font>
-         <family>Ubuntu Condensed</family>
-         <pointsize>24</pointsize>
-        </font>
-       </property>
-       <property name="text">
-        <string>Astronomical image of day</string>
-       </property>
-       <property name="alignment">
-        <set>Qt::AlignCenter</set>
-       </property>
-      </widget>
-     </widget>
     </widget>
-   </item>
-  </layout>
+   </widget>
+   <widget class="QLabel" name="label">
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>0</y>
+      <width>1200</width>
+      <height>768</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <zorder>label</zorder>
+   <zorder>banner</zorder>
+   <zorder>frame</zorder>
+   <zorder>frame_2</zorder>
+  </widget>
  </widget>
  <resources/>
  <connections/>

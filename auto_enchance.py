@@ -94,17 +94,13 @@ class Ui_autoenhance(object):
         self.reset.setIcon(icon)
         self.reset.setObjectName("reset")
         self.reset.clicked.connect(self.img_reset)
-        self.compare = QtWidgets.QPushButton(self.ui)
-        self.compare.setGeometry(QtCore.QRect(78, 384, 131, 41))
-        icon = QtGui.QIcon.fromTheme("document-open")
-        self.compare.setIcon(icon)
-        self.compare.setObjectName("compare")
+        
         self.enhance_2 = QtWidgets.QPushButton(self.ui)
         self.enhance_2.setGeometry(QtCore.QRect(80, 240, 131, 41))
         icon = QtGui.QIcon.fromTheme("zoom-fit-best")
         self.enhance_2.setIcon(icon)
         self.enhance_2.setObjectName("enhance_2")
-        self.enhance_2.clicked.connect(self.img_enhance_2)
+        self.enhance_2.clicked.connect(self.img_scientific)
         self.enhance_1 = QtWidgets.QPushButton(self.ui)
         self.enhance_1.setGeometry(QtCore.QRect(80, 170, 131, 41))
         icon = QtGui.QIcon.fromTheme("weather-clear")
@@ -159,12 +155,12 @@ class Ui_autoenhance(object):
 
     def retranslateUi(self, Form):
         _translate = QtCore.QCoreApplication.translate
-        Form.setWindowTitle(_translate("Form", "Form"))
+        Form.setWindowTitle(_translate("Form", "Auto Enhance"))
         self.save.setText(_translate("Form", "Save"))
         self.discard.setText(_translate("Form", "Discard"))
         self.heading.setText(_translate("Form", "Auto Enhance"))
         self.reset.setText(_translate("Form", "Reset"))
-        self.compare.setText(_translate("Form", "Compare"))
+        
         self.enhance_2.setText(_translate("Form", "enhance_2"))
         self.enhance_1.setText(_translate("Form", "enhance_1"))
 

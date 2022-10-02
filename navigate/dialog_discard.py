@@ -2,6 +2,7 @@ from PyQt6 import QtCore, QtGui, QtWidgets
 import os
 
 from navigate.urls import Url
+from start import Ui_landing
 
 class Ui_Dialog(object):
     def setupUi(self, Dialog,Form):
@@ -69,7 +70,11 @@ class Ui_Dialog(object):
         isExist = os.path.exists("Temp/temp.png")
         if isExist==True:
             os.remove("Temp/temp.png")
-        QtCore.QCoreApplication.instance().quit()
+        self.window=QtWidgets.QWidget()
+        self.ui=Ui_landing()
+        self.ui.setupUi(self.window)
+        dialog_ui.hide()
+        self.window.show()
 
     def cancelit(self):
         dialog_ui.hide()
@@ -79,7 +84,7 @@ class Ui_Dialog(object):
 
     def retranslateUi(self, Dialog):
         _translate = QtCore.QCoreApplication.translate
-        Dialog.setWindowTitle(_translate("Dialog", "Dialog"))
+        Dialog.setWindowTitle(_translate("Dialog", "Your changes will be lost"))
         self.label.setText(_translate("Dialog", "Save Changes in Images"))
         self.label_2.setText(_translate("Dialog", "Your changes will be lost."))
         self.discard.setText(_translate("Dialog", "Discard"))

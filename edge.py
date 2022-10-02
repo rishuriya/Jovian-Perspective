@@ -5,6 +5,9 @@ import cv2
 from navigate.navigate import Edit
 import image_processing
 import math
+import matplotlib.pylab as plt
+
+plt.style.use('ggplot')
 class Ui_edge(object):
     
     def setupUi(self, Form,File,x):
@@ -111,11 +114,7 @@ class Ui_edge(object):
         self.reset.setIcon(icon)
         self.reset.setObjectName("reset")
         self.reset.clicked.connect(self.img_reset)
-        self.compare = QtWidgets.QPushButton(self.ui)
-        self.compare.setGeometry(QtCore.QRect(78, 384, 131, 41))
-        icon = QtGui.QIcon.fromTheme("system-reboot")
-        self.compare.setIcon(icon)
-        self.compare.setObjectName("compare")
+        
         
         self.verticalLayout.addWidget(self.frame_2)
 
@@ -134,6 +133,18 @@ class Ui_edge(object):
         change_val=self.textEdit.toPlainText()
         change_val=int(change_val)
         self.verticalSlider.setValue(change_val)
+
+    def compare_value(self):
+        fig, axs = plt.subplots(1, 2, figsize=(15, 15))
+        axs[0].imshow(tname)
+        axs[1].imshow(name)
+        axs[0].axis('off')
+        axs[1].axis('off')
+        
+        axs[0].set_title('Saved image')
+        axs[1].set_title('Edited image ')
+        
+        plt.show()
     
     def update_image(self, value):
         isThere = os.path.exists(name)
@@ -174,12 +185,12 @@ class Ui_edge(object):
 
     def retranslateUi(self, Form):
         _translate = QtCore.QCoreApplication.translate
-        Form.setWindowTitle(_translate("Form", "Form"))
+        Form.setWindowTitle(_translate("Form", "Edge Detection"))
         self.save.setText(_translate("Form", "Save"))
         self.discarded.setText(_translate("Form", "Discard"))
         self.heading.setText(_translate("Form", "Edge Detection"))
         self.reset.setText(_translate("Form", "Reset"))
-        self.compare.setText(_translate("Form", "Compare"))
+        
 
 
 if __name__ == "__main__":

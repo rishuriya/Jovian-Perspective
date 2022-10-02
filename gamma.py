@@ -90,11 +90,7 @@ class Ui_gamma(object):
         self.reset.setIcon(icon)
         self.reset.setObjectName("reset")
         self.reset.clicked.connect(self.img_reset)
-        self.compare = QtWidgets.QPushButton(self.ui)
-        self.compare.setGeometry(QtCore.QRect(78, 384, 131, 41))
-        icon = QtGui.QIcon.fromTheme("document-open")
-        self.compare.setIcon(icon)
-        self.compare.setObjectName("compare")
+        
         self.verticalSlider = QtWidgets.QSlider(self.ui)
         self.verticalSlider.setGeometry(QtCore.QRect(130, 50, 16, 211))
         self.verticalSlider.setSingleStep(5)
@@ -161,12 +157,12 @@ class Ui_gamma(object):
 
     def retranslateUi(self, Form):
         _translate = QtCore.QCoreApplication.translate
-        Form.setWindowTitle(_translate("Form", "Form"))
+        Form.setWindowTitle(_translate("Form", "Gamma Correction"))
         self.save.setText(_translate("Form", "Save"))
         self.discard.setText(_translate("Form", "Discard"))
         self.heading.setText(_translate("Form", "Gamma Correction"))
         self.reset.setText(_translate("Form", "Reset"))
-        self.compare.setText(_translate("Form", "Compare"))
+        
 
 
 if __name__ == "__main__":

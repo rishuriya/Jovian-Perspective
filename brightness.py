@@ -112,11 +112,7 @@ class Ui_brightness(object):
         self.reset.setIcon(icon)
         self.reset.setObjectName("reset")
         self.reset.clicked.connect(self.img_reset)
-        self.compare = QtWidgets.QPushButton(self.ui)
-        self.compare.setGeometry(QtCore.QRect(78, 384, 131, 41))
-        icon = QtGui.QIcon.fromTheme("system-reboot")
-        self.compare.setIcon(icon)
-        self.compare.setObjectName("compare")
+        
         
         self.verticalLayout.addWidget(self.frame_2)
 
@@ -170,12 +166,12 @@ class Ui_brightness(object):
 
     def retranslateUi(self, Form):
         _translate = QtCore.QCoreApplication.translate
-        Form.setWindowTitle(_translate("Form", "Form"))
+        Form.setWindowTitle(_translate("Form", "Brightness"))
         self.save.setText(_translate("Form", "Save"))
         self.discarded.setText(_translate("Form", "Discard"))
         self.heading.setText(_translate("Form", "Brightness"))
         self.reset.setText(_translate("Form", "Reset"))
-        self.compare.setText(_translate("Form", "Compare"))
+        
 
 
 if __name__ == "__main__":

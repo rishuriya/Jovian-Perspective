@@ -94,11 +94,7 @@ class Ui_colour(object):
         self.reset.setIcon(icon)
         self.reset.setObjectName("reset")
         self.reset.clicked.connect(self.img_reset)
-        self.compare = QtWidgets.QPushButton(self.ui)
-        self.compare.setGeometry(QtCore.QRect(78, 384, 131, 41))
-        icon = QtGui.QIcon.fromTheme("document-open")
-        self.compare.setIcon(icon)
-        self.compare.setObjectName("compare")
+        
         self.r_slider = QtWidgets.QSlider(self.ui)
         self.r_slider.setGeometry(QtCore.QRect(50, 50, 16, 211))
         self.r_slider.setSingleStep(5)
@@ -166,7 +162,9 @@ class Ui_colour(object):
         isThere = os.path.exists(name)
         if isThere==True:
             os.remove(name)
-        self.verticalSlider.setValue(0)
+        self.r_slider.setValue(0)
+        self.g_slider.setValue(0)
+        self.b_slider.setValue(0)
     def update_r(self):
         change_val_r=self.textEdit.toPlainText()
         change_val_r=int(change_val_r)
@@ -225,7 +223,7 @@ class Ui_colour(object):
         self.discard.setText(_translate("Form", "Discard"))
         self.heading.setText(_translate("Form", "Colour"))
         self.reset.setText(_translate("Form", "Reset"))
-        self.compare.setText(_translate("Form", "Compare"))
+        
         self.r.setText(_translate("Form", "R"))
         self.g.setText(_translate("Form", "G"))
         self.b.setText(_translate("Form", "B"))
