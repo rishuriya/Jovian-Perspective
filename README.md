@@ -1,5 +1,5 @@
 
-# Jovian Perespective
+# Jovian Perspective
 
 A Image processing software for process image of Jovian system. The Images was capture by the junocam of Nasa. This is the project for Nasa space app challenge.
 
@@ -30,11 +30,11 @@ To run the project, give command of
     
     1) The first one just enhances based of the mean and variance of the colors and brightness of each pixels.
     
-    ![image](https://user-images.githubusercontent.com/91690484/193459988-6ac51381-6fd3-40af-90cd-a9036f415ce8.png)
+        ![image](https://user-images.githubusercontent.com/91690484/193459988-6ac51381-6fd3-40af-90cd-a9036f415ce8.png)
 
     2) The second one ehnances the image in a different way by changing colors to make it more accurate. It make the features more visible
     
-    ![image](https://user-images.githubusercontent.com/91690484/193460676-abbb6d19-a3b1-4725-bf97-ad4703e752eb.png)
+        ![image](https://user-images.githubusercontent.com/91690484/193460676-abbb6d19-a3b1-4725-bf97-ad4703e752eb.png)
 
 - ### Edge Dectection
     
