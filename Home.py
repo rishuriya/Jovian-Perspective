@@ -4,6 +4,12 @@ from PyQt6 import QtCore, QtGui, QtWidgets
 import os
 from navigate.dialog_discard import Ui_Dialog
 from navigate.urls import Url
+import pyimgur
+import webbrowser
+CLIENT_ID = "245a6cbc3b336db"
+PATH = "Temp/temp.png"
+im = pyimgur.Imgur(CLIENT_ID)
+
 
 class Ui_Form(object):
     def setupUi(self, Form,File,Tfile,x):
@@ -219,8 +225,11 @@ class Ui_Form(object):
         Url.equaliser(self,wid,fname,counter)
 
     def shar(self):
-        print("Hello")
-        # code for share
+        uploaded_image = im.upload_image(PATH, title="Uploaded with PyImgur")
+        url = str(uploaded_image.link)
+        sample_iurl = f"https://twitter.com/intent/tweet?text=Hey%2C+check+out+this+cool+JunoCam+Image%0A{url}+%0A%23SpaceApps+%23Perspective"
+        webbrowser.open(sample_iurl,new=2)
+
         
     def closeit(self):
         if isExist == True:
