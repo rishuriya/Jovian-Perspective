@@ -139,6 +139,10 @@ color:#fff}</string>
         <height>541</height>
        </rect>
       </property>
+      <property name="styleSheet">
+       <string notr="true">QLabel{
+background-color:rgb(97, 53, 131)}</string>
+      </property>
       <property name="frameShape">
        <enum>QFrame::StyledPanel</enum>
       </property>
@@ -179,10 +183,10 @@ color:#fff}</string>
          <normaloff>.</normaloff>.</iconset>
        </property>
       </widget>
-      <widget class="QSlider" name="verticalSlider">
+      <widget class="QSlider" name="r_slider">
        <property name="geometry">
         <rect>
-         <x>130</x>
+         <x>50</x>
          <y>50</y>
          <width>16</width>
          <height>211</height>
@@ -198,9 +202,9 @@ color:#fff}</string>
       <widget class="QTextEdit" name="textEdit">
        <property name="geometry">
         <rect>
-         <x>170</x>
-         <y>150</y>
-         <width>61</width>
+         <x>40</x>
+         <y>270</y>
+         <width>41</width>
          <height>31</height>
         </rect>
        </property>
@@ -209,6 +213,118 @@ color:#fff}</string>
 background-color:rgb(97, 53, 131);
 border-width:10px
 }</string>
+       </property>
+      </widget>
+      <widget class="QTextEdit" name="textEdit_2">
+       <property name="geometry">
+        <rect>
+         <x>120</x>
+         <y>270</y>
+         <width>41</width>
+         <height>31</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">*{
+background-color:rgb(97, 53, 131);
+border-width:10px
+}</string>
+       </property>
+      </widget>
+      <widget class="QSlider" name="g_slider">
+       <property name="geometry">
+        <rect>
+         <x>130</x>
+         <y>50</y>
+         <width>16</width>
+         <height>211</height>
+        </rect>
+       </property>
+       <property name="singleStep">
+        <number>5</number>
+       </property>
+       <property name="orientation">
+        <enum>Qt::Vertical</enum>
+       </property>
+      </widget>
+      <widget class="QTextEdit" name="textEdit_3">
+       <property name="geometry">
+        <rect>
+         <x>200</x>
+         <y>270</y>
+         <width>41</width>
+         <height>31</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">*{
+background-color:rgb(97, 53, 131);
+border-width:10px
+}</string>
+       </property>
+      </widget>
+      <widget class="QSlider" name="b_slider">
+       <property name="geometry">
+        <rect>
+         <x>210</x>
+         <y>50</y>
+         <width>16</width>
+         <height>211</height>
+        </rect>
+       </property>
+       <property name="singleStep">
+        <number>5</number>
+       </property>
+       <property name="orientation">
+        <enum>Qt::Vertical</enum>
+       </property>
+      </widget>
+      <widget class="QLabel" name="r">
+       <property name="geometry">
+        <rect>
+         <x>40</x>
+         <y>20</y>
+         <width>41</width>
+         <height>31</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>R</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignCenter</set>
+       </property>
+      </widget>
+      <widget class="QLabel" name="g">
+       <property name="geometry">
+        <rect>
+         <x>120</x>
+         <y>20</y>
+         <width>41</width>
+         <height>31</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>G</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignCenter</set>
+       </property>
+      </widget>
+      <widget class="QLabel" name="b">
+       <property name="geometry">
+        <rect>
+         <x>200</x>
+         <y>20</y>
+         <width>41</width>
+         <height>31</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>B</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignCenter</set>
        </property>
       </widget>
      </widget>
