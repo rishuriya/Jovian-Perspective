@@ -4,19 +4,27 @@
 Our project aims to develop an easy-to-use desktop application which can process the planetary images as per the user's requirements. It can perform various operations on the image such as auto-enhancement, sharpening, edge detection, increasing brightness, color variation, denoising and gamma correction. As per the challenge, the application can process the JunoCam raw images in different ways to be used by scientists for research purposes or by artists for creative use. 
 Processing the images in different aspects is important as it can provide better details for studying the state of the planets and can also provide a better visualization.
 
-## Deployment
+## Installation instructions
 
-To deploy this project, make an empty directory named 'Temp', make sure you have the updated versions of Python and pip. To download the required packages run
-
+Write the following code to clone the repository
 ```bash
-    pip install -r requirements.txt
-```
-To run the project, use the following command 
-
-```bash
-    python start.py
+git clone https://github.com/rishuriya/nasa-spaceapp
 ```
 
+Create a **"Temp"** directory to store temporary files using the following command.
+```bash
+mkdir Temp
+```
+
+To install all the required packages type the following code
+```bash
+pip install -r requirements.txt
+```
+
+To Start the application, type
+```bash
+python start.py
+```
 ## User Instructions
 
 - ### Sharpness
