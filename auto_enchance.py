@@ -98,18 +98,18 @@ class Ui_autoenhance(object):
         icon = QtGui.QIcon.fromTheme("document-open")
         self.compare.setIcon(icon)
         self.compare.setObjectName("compare")
-        self.scientific = QtWidgets.QPushButton(self.ui)
-        self.scientific.setGeometry(QtCore.QRect(80, 240, 131, 41))
+        self.enhance_2 = QtWidgets.QPushButton(self.ui)
+        self.enhance_2.setGeometry(QtCore.QRect(80, 240, 131, 41))
         icon = QtGui.QIcon.fromTheme("zoom-fit-best")
-        self.scientific.setIcon(icon)
-        self.scientific.setObjectName("scientific")
-        self.scientific.clicked.connect(self.img_scientific)
-        self.artistic = QtWidgets.QPushButton(self.ui)
-        self.artistic.setGeometry(QtCore.QRect(80, 170, 131, 41))
+        self.enhance_2.setIcon(icon)
+        self.enhance_2.setObjectName("enhance_2")
+        self.enhance_2.clicked.connect(self.img_enhance_2)
+        self.enhance_1 = QtWidgets.QPushButton(self.ui)
+        self.enhance_1.setGeometry(QtCore.QRect(80, 170, 131, 41))
         icon = QtGui.QIcon.fromTheme("weather-clear")
-        self.artistic.setIcon(icon)
-        self.artistic.setObjectName("artistic")
-        self.artistic.clicked.connect(self.img_artistic)
+        self.enhance_1.setIcon(icon)
+        self.enhance_1.setObjectName("enhance_1")
+        self.enhance_1.clicked.connect(self.img_enhance_1)
         self.verticalLayout.addWidget(self.frame_2)
 
         self.retranslateUi(Form)
@@ -120,11 +120,7 @@ class Ui_autoenhance(object):
         if isThere==True:
             os.remove(name)
     
-    def img_artistic(self):
-        isThere = os.path.exists(name)
-        # if isThere==False:
-        #     img = Image.open(fname)
-        #     img = img.save(name)
+    def img_enhance_1(self):
         i = cv2.imread(name)
         out = image_processing.automatic_brightness_and_contrast(i)
         cv2.imwrite(fname,out)
@@ -132,11 +128,9 @@ class Ui_autoenhance(object):
         self.label.setPixmap(pixmap)
         self.label.setScaledContents(True)
 
-    def img_scientific(self):
-        isThere = os.path.exists(name)
-        if isThere==False:
-            img = Image.open(fname)
-            img = img.save(name)
+    def img_enhance_2(self):
+        out = image_processing.automatic_brightness_and_contrast(fname)
+        cv2.imwrite(name,out)
         pixmap = QtGui.QPixmap(name)
         self.label.setPixmap(pixmap)
         self.label.setScaledContents(True)
@@ -168,8 +162,8 @@ class Ui_autoenhance(object):
         self.heading.setText(_translate("Form", "Auto Enhance"))
         self.reset.setText(_translate("Form", "Reset"))
         self.compare.setText(_translate("Form", "Compare"))
-        self.scientific.setText(_translate("Form", "Scientific"))
-        self.artistic.setText(_translate("Form", "Artistic"))
+        self.enhance_2.setText(_translate("Form", "enhance_2"))
+        self.enhance_1.setText(_translate("Form", "enhance_1"))
 
 
 if __name__ == "__main__":

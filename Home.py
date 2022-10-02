@@ -119,10 +119,6 @@ class Ui_Form(object):
         self.gamma.setGeometry(QtCore.QRect(40, 610, 121, 61))
         self.gamma.setObjectName("noise")
         self.gamma.clicked.connect(self.open_Gamma)
-        self.equaliser = QtWidgets.QPushButton(self.ui)
-        self.equaliser.setGeometry(QtCore.QRect(40, 690, 121, 61))
-        self.equaliser.setObjectName("noise")
-        self.equaliser.clicked.connect(self.open_equaliser)
         self.logo = QtWidgets.QLabel(self.ui)
         self.logo = QtWidgets.QLabel(self.ui)
         self.logo.setGeometry(QtCore.QRect(50, 20, 100, 100))
@@ -211,9 +207,6 @@ class Ui_Form(object):
 
     def open_Gamma(self):
         Url.gamma(self,wid,fname,counter)
-
-    def open_equaliser(self):
-        Url.equaliser(self,wid,fname,counter)
         
     def closeit(self):
         if isExist == True:
@@ -238,7 +231,6 @@ class Ui_Form(object):
         self.sharpness.setText(_translate("Form", "Sharpness"))
         self.noise.setText(_translate("Form", "Noise"))
         self.gamma.setText(_translate("Form", "Gamma cor."))
-        self.equaliser.setText(_translate("Form", "Equaliser"))
         self.edge.setText(_translate("Form", "Edge"))
         self.brightness.setText(_translate("Form", "Brightness"))
         self.colour.setText(_translate("Form", "Colour"))
