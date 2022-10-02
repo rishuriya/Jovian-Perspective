@@ -96,25 +96,29 @@ class Ui_Form(object):
         self.auto_2.setObjectName("auto_2")
         self.auto_2.clicked.connect(self.open_autoenhance)
         self.sharpness = QtWidgets.QPushButton(self.ui)
-        self.sharpness.setGeometry(QtCore.QRect(40, 220, 121, 61))
+        self.sharpness.setGeometry(QtCore.QRect(40, 210, 121, 61))
         self.sharpness.setObjectName("sharpness")
         self.sharpness.clicked.connect(self.open_Sharpness)
         self.edge = QtWidgets.QPushButton(self.ui)
-        self.edge.setGeometry(QtCore.QRect(40, 310, 121, 61))
+        self.edge.setGeometry(QtCore.QRect(40, 290, 121, 61))
         self.edge.setObjectName("edge")
         self.edge.clicked.connect(self.open_Edge)
         self.brightness = QtWidgets.QPushButton(self.ui)
-        self.brightness.setGeometry(QtCore.QRect(40, 390, 121, 61))
+        self.brightness.setGeometry(QtCore.QRect(40, 370, 121, 61))
         self.brightness.setObjectName("brightness")
         self.brightness.clicked.connect(self.open_Brightness)
         self.colour = QtWidgets.QPushButton(self.ui)
-        self.colour.setGeometry(QtCore.QRect(40, 480, 121, 61))
+        self.colour.setGeometry(QtCore.QRect(40, 450, 121, 61))
         self.colour.setObjectName("colour")
         self.colour.clicked.connect(self.open_Colour)
         self.noise = QtWidgets.QPushButton(self.ui)
-        self.noise.setGeometry(QtCore.QRect(40, 560, 121, 61))
-        self.noise.setObjectName("sharpness")
+        self.noise.setGeometry(QtCore.QRect(40, 530, 121, 61))
+        self.noise.setObjectName("noise")
         self.noise.clicked.connect(self.open_Noise)
+        self.gamma = QtWidgets.QPushButton(self.ui)
+        self.gamma.setGeometry(QtCore.QRect(40, 610, 121, 61))
+        self.gamma.setObjectName("noise")
+        self.gamma.clicked.connect(self.open_Gamma)
         self.logo = QtWidgets.QLabel(self.ui)
         self.logo.setGeometry(QtCore.QRect(50, 20, 100, 100))
         self.logo.setText("")
@@ -199,6 +203,9 @@ class Ui_Form(object):
 
     def open_Noise(self):
         Url.noise(self,wid,fname,counter)
+
+    def open_Gamma(self):
+        Url.gamma(self,wid,fname,counter)
         
     def closeit(self):
         if isExist == True:
@@ -222,6 +229,7 @@ class Ui_Form(object):
         self.auto_2.setText(_translate("Form", "Auto Enhance"))
         self.sharpness.setText(_translate("Form", "Sharpness"))
         self.noise.setText(_translate("Form", "Noise"))
+        self.gamma.setText(_translate("Form", "Gamma cor."))
         self.edge.setText(_translate("Form", "Edge"))
         self.brightness.setText(_translate("Form", "Brightness"))
         self.colour.setText(_translate("Form", "Colour"))

@@ -1,4 +1,5 @@
 from PyQt6 import QtCore, QtGui, QtWidgets
+from gamma import Ui_gamma
 from noise import Ui_Noise
 from sharpness import Ui_Sharpness
 from edge import Ui_edge
@@ -43,6 +44,13 @@ class Url:
     def noise(self,Form,name,counter):
         self.window=QtWidgets.QWidget()
         self.ui=Ui_Noise()
+        self.ui.setupUi(self.window,name,counter)
+        Form.hide()
+        self.window.show()
+
+    def gamma(self,Form,name,counter):
+        self.window=QtWidgets.QWidget()
+        self.ui=Ui_gamma()
         self.ui.setupUi(self.window,name,counter)
         Form.hide()
         self.window.show()
