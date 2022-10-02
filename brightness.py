@@ -123,14 +123,15 @@ class Ui_brightness(object):
         self.label.setScaledContents(True)
         
     def update_image(self, value):
-        isThere = os.path.exists(name)
+        print(value)
+        i = cv2.imread(name)
+        out = image_processing.increase_brightness(i,value)
+        cv2.imwrite(fname,out)
+        isThere = os.path.exists(fname)
         if isThere==False:
              img = Image.open(fname)
              img = img.save(name)
-        i = cv2.imread(name)
-        out = image_processing.increase_brightness(i,value)
-        cv2.imwrite(name,out)
-        pixmap = QtGui.QPixmap(name)
+        pixmap = QtGui.QPixmap(fname)
         self.label.setPixmap(pixmap)
         self.label.setScaledContents(True)
     def img_save(self):
