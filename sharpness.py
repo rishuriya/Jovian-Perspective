@@ -1,7 +1,7 @@
 from PyQt6 import QtCore, QtGui, QtWidgets
 from PIL import Image
 import os
-
+import cv2
 from navigate.navigate import Edit
 
 class Ui_Sharpness(object):
@@ -107,19 +107,26 @@ class Ui_Sharpness(object):
         self.retranslateUi(Form)
         QtCore.QMetaObject.connectSlotsByName(Form)
     def img_reset(self):
-        print("reset")
         isThere = os.path.exists(name)
         if isThere==True:
             os.remove(name)
+        pixmap = QtGui.QPixmap(fname)
+        self.verticalSlider.setValue(0)
+        self.label.setPixmap(pixmap)
+        self.label.setScaledContents(True)
     
     def update_image(self, value):
         isThere = os.path.exists(name)
         if isThere==False:
             img = Image.open(fname)
             img = img.save(name)
+        i = cv2.imread(name)
+        dst = cv2.fastNlMeansDenoising(i,None,value*0.2,7,21)
+        cv2.imwrite(name,dst)
         pixmap = QtGui.QPixmap(name)
         self.label.setPixmap(pixmap)
         self.label.setScaledContents(True)
+    
     def img_save(self):
         img = Image.open(name)
         img = img.save(fname)
@@ -129,6 +136,7 @@ class Ui_Sharpness(object):
         if isThere==True:
             os.remove(name)
         Edit.img_saved(self,wid,pfile,fname,val)
+    
     def img_discard(self):
         print(val)
         if val==0:
