@@ -1,9 +1,9 @@
 from PyQt6 import QtCore, QtGui, QtWidgets
 from PIL import Image
 import os
-
+import cv2
 from navigate.navigate import Edit
-
+import image_processing
 class Ui_gamma(object):
     def setupUi(self, Form,File,x):
         global val
@@ -130,6 +130,12 @@ class Ui_gamma(object):
         if isThere==False:
             img = Image.open(fname)
             img = img.save(name)
+        img = cv2.imread(fname)
+        if value>0:
+            out = image_processing.gammaCorrection(img, value)
+        else:
+            out = img
+        cv2.imwrite(name, out)
         pixmap = QtGui.QPixmap(name)
         self.textEdit.setText(str(value))
         self.label.setPixmap(pixmap)
