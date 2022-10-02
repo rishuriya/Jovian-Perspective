@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1920</width>
-    <height>1024</height>
+    <width>1200</width>
+    <height>768</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -50,7 +50,7 @@ background-color:rgb(36, 31, 49)
         <x>0</x>
         <y>0</y>
         <width>291</width>
-        <height>1001</height>
+        <height>768</height>
        </rect>
       </property>
       <property name="text">
@@ -79,7 +79,7 @@ background-color:rgb(36, 31, 49)
         <x>-1</x>
         <y>0</y>
         <width>161</width>
-        <height>1006</height>
+        <height>768</height>
        </rect>
       </property>
       <property name="frameShape">
@@ -94,7 +94,7 @@ background-color:rgb(36, 31, 49)
          <x>0</x>
          <y>10</y>
          <width>151</width>
-         <height>1001</height>
+         <height>768</height>
         </rect>
        </property>
        <property name="text">
@@ -107,7 +107,7 @@ background-color:rgb(36, 31, 49)
        <rect>
         <x>159</x>
         <y>0</y>
-        <width>901</width>
+        <width>351</width>
         <height>80</height>
        </rect>
       </property>
@@ -140,10 +140,10 @@ background-color:rgb(36, 31, 49)
      <widget class="QFrame" name="frame_4">
       <property name="geometry">
        <rect>
-        <x>1090</x>
-        <y>-10</y>
-        <width>501</width>
-        <height>1031</height>
+        <x>540</x>
+        <y>10</y>
+        <width>331</width>
+        <height>71</height>
        </rect>
       </property>
       <property name="styleSheet">
@@ -161,30 +161,11 @@ color:#fff
       <property name="frameShadow">
        <enum>QFrame::Raised</enum>
       </property>
-      <widget class="QLabel" name="label_5">
-       <property name="geometry">
-        <rect>
-         <x>20</x>
-         <y>240</y>
-         <width>461</width>
-         <height>471</height>
-        </rect>
-       </property>
-       <property name="styleSheet">
-        <string notr="true">*{
-border-width:25px;
-border-color:#fff
-}</string>
-       </property>
-       <property name="text">
-        <string/>
-       </property>
-      </widget>
       <widget class="QPushButton" name="quit">
        <property name="geometry">
         <rect>
-         <x>60</x>
-         <y>30</y>
+         <x>40</x>
+         <y>10</y>
          <width>111</width>
          <height>51</height>
         </rect>
@@ -193,61 +174,24 @@ border-color:#fff
         <string>Quit</string>
        </property>
        <property name="icon">
-        <iconset theme="application-exit"/>
+        <iconset theme="application-exit">
+         <normaloff>.</normaloff>.</iconset>
        </property>
       </widget>
       <widget class="QPushButton" name="select">
        <property name="geometry">
         <rect>
-         <x>200</x>
-         <y>30</y>
+         <x>180</x>
+         <y>10</y>
          <width>121</width>
          <height>51</height>
         </rect>
        </property>
        <property name="text">
-        <string>Select Image</string>
+        <string>Start project</string>
        </property>
        <property name="icon">
-        <iconset theme="edit-find"/>
-       </property>
-      </widget>
-      <widget class="QPushButton" name="start">
-       <property name="geometry">
-        <rect>
-         <x>350</x>
-         <y>30</y>
-         <width>111</width>
-         <height>51</height>
-        </rect>
-       </property>
-       <property name="text">
-        <string>Lets Go</string>
-       </property>
-       <property name="icon">
-        <iconset theme="go-next"/>
-       </property>
-      </widget>
-      <widget class="QLabel" name="label_8">
-       <property name="geometry">
-        <rect>
-         <x>90</x>
-         <y>720</y>
-         <width>311</width>
-         <height>91</height>
-        </rect>
-       </property>
-       <property name="font">
-        <font>
-         <family>Ubuntu Condensed</family>
-         <pointsize>25</pointsize>
-        </font>
-       </property>
-       <property name="text">
-        <string>Selected Image</string>
-       </property>
-       <property name="alignment">
-        <set>Qt::AlignCenter</set>
+        <iconset theme="document-new"/>
        </property>
       </widget>
      </widget>
@@ -269,8 +213,8 @@ border-color:#fff
       <widget class="QLabel" name="label">
        <property name="geometry">
         <rect>
-         <x>40</x>
-         <y>40</y>
+         <x>100</x>
+         <y>80</y>
          <width>421</width>
          <height>431</height>
         </rect>
@@ -290,45 +234,6 @@ border-color:#fff
        </property>
        <property name="text">
         <string>Junocam Images</string>
-       </property>
-      </widget>
-      <widget class="QLabel" name="label_2">
-       <property name="geometry">
-        <rect>
-         <x>500</x>
-         <y>40</y>
-         <width>421</width>
-         <height>431</height>
-        </rect>
-       </property>
-       <property name="text">
-        <string/>
-       </property>
-      </widget>
-      <widget class="QLabel" name="label_4">
-       <property name="geometry">
-        <rect>
-         <x>500</x>
-         <y>480</y>
-         <width>421</width>
-         <height>431</height>
-        </rect>
-       </property>
-       <property name="text">
-        <string/>
-       </property>
-      </widget>
-      <widget class="QLabel" name="label_3">
-       <property name="geometry">
-        <rect>
-         <x>40</x>
-         <y>480</y>
-         <width>421</width>
-         <height>431</height>
-        </rect>
-       </property>
-       <property name="text">
-        <string/>
        </property>
       </widget>
      </widget>
