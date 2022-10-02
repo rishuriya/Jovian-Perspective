@@ -11,11 +11,6 @@ Write the following code to clone the repository
 git clone https://github.com/rishuriya/nasa-spaceapp
 ```
 
-Create a **"Temp"** directory to store temporary files using the following command.
-```bash
-mkdir Temp
-```
-
 To install all the required packages type the following code
 ```bash
 pip install -r requirements.txt
