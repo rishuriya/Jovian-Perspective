@@ -116,20 +116,30 @@ class Ui_autoenhance(object):
         isThere = os.path.exists(name)
         if isThere==True:
             os.remove(name)
+        pixmap = QtGui.QPixmap(fname)
+        self.label.setPixmap(pixmap)
+        self.label.setScaledContents(True)
     
     def img_enhance_1(self):
-        i = cv2.imread(name)
+        isThere = os.path.exists(name)
+        if isThere==False:
+            img = Image.open(fname)
+            img = img.save(name)
+        i = cv2.imread(fname)
         out = image_processing.automatic_brightness_and_contrast(i)
         cv2.imwrite(name,out)
         pixmap = QtGui.QPixmap(name)
         self.label.setPixmap(pixmap)
         self.label.setScaledContents(True)
 
-    def img_scientific(self):
+    def img_enhance_2(self):
         isThere = os.path.exists(name)
         if isThere==False:
             img = Image.open(fname)
             img = img.save(name)
+        
+        out = image_processing.equalize_this(name)
+        cv2.imwrite(name,out)
         pixmap = QtGui.QPixmap(name)
         self.label.setPixmap(pixmap)
         self.label.setScaledContents(True)
@@ -141,6 +151,8 @@ class Ui_autoenhance(object):
         val=val+1
         isThere = os.path.exists(name)
         if isThere==True:
+            img = Image.open(name)
+            img = img.save(fname)
             os.remove(name)
         Edit.img_saved(self,wid,pfile,fname,val)
     def img_discard(self):
