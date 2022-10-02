@@ -26,6 +26,16 @@ To run the project, give command of
     ![image](https://user-images.githubusercontent.com/91690484/193458062-a8f9295e-ba90-4ce2-9c61-ead0904b8d9e.png)
 
 - ### Auto Enhance
+    There are two types of enhancment provided by us. 
+    
+    1) The first one just enhances based of the mean and variance of the colors and brightness of each pixels.
+    
+    ![image](https://user-images.githubusercontent.com/91690484/193459988-6ac51381-6fd3-40af-90cd-a9036f415ce8.png)
+
+    2) The second one ehnances the image in a different way by changing colors to make it more accurate. It make the features more visible
+    
+    ![image](https://user-images.githubusercontent.com/91690484/193460676-abbb6d19-a3b1-4725-bf97-ad4703e752eb.png)
+
 - ### Edge Dectection
     
     This feature detects the edges in an image acoording to it's kernel size which can be controlled by the slider. Our application uses SobelY to detect the edges.
