@@ -111,6 +111,10 @@ class Ui_Form(object):
         self.colour.setGeometry(QtCore.QRect(40, 480, 121, 61))
         self.colour.setObjectName("colour")
         self.colour.clicked.connect(self.open_Colour)
+        self.noise = QtWidgets.QPushButton(self.ui)
+        self.noise.setGeometry(QtCore.QRect(40, 560, 121, 61))
+        self.noise.setObjectName("sharpness")
+        self.noise.clicked.connect(self.open_Noise)
         self.logo = QtWidgets.QLabel(self.ui)
         self.logo.setGeometry(QtCore.QRect(50, 20, 100, 100))
         self.logo.setText("")
@@ -192,6 +196,9 @@ class Ui_Form(object):
         
     def open_Colour(self):
         Url.colour(self,wid,fname,counter)
+
+    def open_Noise(self):
+        Url.noise(self,wid,fname,counter)
         
     def closeit(self):
         if isExist == True:
@@ -214,6 +221,7 @@ class Ui_Form(object):
         Form.setWindowTitle(_translate("Form", "Form"))
         self.auto_2.setText(_translate("Form", "Auto Enhance"))
         self.sharpness.setText(_translate("Form", "Sharpness"))
+        self.noise.setText(_translate("Form", "Noise"))
         self.edge.setText(_translate("Form", "Edge"))
         self.brightness.setText(_translate("Form", "Brightness"))
         self.colour.setText(_translate("Form", "Colour"))

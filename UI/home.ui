@@ -194,6 +194,19 @@ background-color:#071e26;
       <string/>
      </property>
     </widget>
+    <widget class="QPushButton" name="colour_2">
+     <property name="geometry">
+      <rect>
+       <x>40</x>
+       <y>560</y>
+       <width>121</width>
+       <height>61</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Noise</string>
+     </property>
+    </widget>
    </widget>
    <widget class="QFrame" name="header">
     <property name="geometry">
@@ -229,7 +242,8 @@ color:#000;
       <string>Discard</string>
      </property>
      <property name="icon">
-      <iconset theme="edit-clear"/>
+      <iconset theme="edit-clear">
+       <normaloff>.</normaloff>.</iconset>
      </property>
     </widget>
     <widget class="QPushButton" name="save">
@@ -245,7 +259,8 @@ color:#000;
       <string>Save</string>
      </property>
      <property name="icon">
-      <iconset theme="document-save"/>
+      <iconset theme="document-save">
+       <normaloff>.</normaloff>.</iconset>
      </property>
     </widget>
     <widget class="QLabel" name="label">
