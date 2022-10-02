@@ -126,6 +126,10 @@ class Ui_Sharpness(object):
         isThere = os.path.exists(name)
         if isThere==True:
             os.remove(name)
+        pixmap = QtGui.QPixmap(fname)
+        self.verticalSlider.setValue(0)
+        self.label.setPixmap(pixmap)
+        self.label.setScaledContents(True)
 
     def update_value(self):
         change_val=self.textEdit.toPlainText()
