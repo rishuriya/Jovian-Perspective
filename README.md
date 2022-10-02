@@ -28,7 +28,7 @@ To run the project, use the following command
 - ### Auto Enhance
     We have provided two types of enhancement: 
     
-    1) The first one enhances the image based on the mean and variance of the colors and brightness of each pixel.
+    1) The first one enhances the image based on the mean and variance of the colors, and brightness of each pixel.
     
         ![image](https://user-images.githubusercontent.com/91690484/193459988-6ac51381-6fd3-40af-90cd-a9036f415ce8.png)
 
@@ -44,7 +44,7 @@ To run the project, use the following command
 
 - ### Brightness Correction
     
-    This allows the user to change the brightness in the image by using the given slider.
+    This allows the user to change the brightness of the image by using the given slider.
     
     ![image](https://user-images.githubusercontent.com/91690484/193458763-3e48b8e7-bd48-419f-b686-e5325f0c6593.png)
 
