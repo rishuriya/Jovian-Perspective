@@ -1,0 +1,381 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>Form</class>
+ <widget class="QWidget" name="Form">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1201</width>
+    <height>796</height>
+   </rect>
+  </property>
+  <property name="sizePolicy">
+   <sizepolicy hsizetype="Maximum" vsizetype="Maximum">
+    <horstretch>0</horstretch>
+    <verstretch>0</verstretch>
+   </sizepolicy>
+  </property>
+  <property name="windowTitle">
+   <string>Form</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true"/>
+  </property>
+  <widget class="QFrame" name="frame">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>1401</width>
+     <height>801</height>
+    </rect>
+   </property>
+   <property name="sizePolicy">
+    <sizepolicy hsizetype="Maximum" vsizetype="Maximum">
+     <horstretch>0</horstretch>
+     <verstretch>0</verstretch>
+    </sizepolicy>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">*{
+border:none;
+background-color:#fff;
+color:#fff;
+}
+#ui{
+background-color:rgb(97, 53, 131)
+}
+QPushButton{
+background-color:#071e26;
+}
+#header{
+text-color:#000;
+}</string>
+   </property>
+   <property name="frameShape">
+    <enum>QFrame::StyledPanel</enum>
+   </property>
+   <property name="frameShadow">
+    <enum>QFrame::Raised</enum>
+   </property>
+   <widget class="QLabel" name="original">
+    <property name="geometry">
+     <rect>
+      <x>210</x>
+      <y>140</y>
+      <width>451</width>
+      <height>501</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QLabel" name="change">
+    <property name="geometry">
+     <rect>
+      <x>710</x>
+      <y>140</y>
+      <width>451</width>
+      <height>501</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QFrame" name="ui">
+    <property name="geometry">
+     <rect>
+      <x>-10</x>
+      <y>-10</y>
+      <width>201</width>
+      <height>811</height>
+     </rect>
+    </property>
+    <property name="sizePolicy">
+     <sizepolicy hsizetype="Maximum" vsizetype="Maximum">
+      <horstretch>0</horstretch>
+      <verstretch>0</verstretch>
+     </sizepolicy>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">*{
+border:none;
+background-color:rgb(97, 53, 131);
+color:#fff;
+}
+QPushButton{
+background-color:#071e26;
+}</string>
+    </property>
+    <property name="frameShape">
+     <enum>QFrame::StyledPanel</enum>
+    </property>
+    <property name="frameShadow">
+     <enum>QFrame::Raised</enum>
+    </property>
+    <widget class="QPushButton" name="auto_2">
+     <property name="geometry">
+      <rect>
+       <x>40</x>
+       <y>130</y>
+       <width>121</width>
+       <height>61</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Auto_Enchance</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="sharpness">
+     <property name="geometry">
+      <rect>
+       <x>40</x>
+       <y>210</y>
+       <width>121</width>
+       <height>61</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Sharpness</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="edge">
+     <property name="geometry">
+      <rect>
+       <x>40</x>
+       <y>290</y>
+       <width>121</width>
+       <height>61</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Edge</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="brightness">
+     <property name="geometry">
+      <rect>
+       <x>40</x>
+       <y>370</y>
+       <width>121</width>
+       <height>61</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Brightness</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="colour">
+     <property name="geometry">
+      <rect>
+       <x>40</x>
+       <y>450</y>
+       <width>121</width>
+       <height>61</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Colour</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="logo">
+     <property name="geometry">
+      <rect>
+       <x>50</x>
+       <y>20</y>
+       <width>100</width>
+       <height>100</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="colour_2">
+     <property name="geometry">
+      <rect>
+       <x>40</x>
+       <y>530</y>
+       <width>121</width>
+       <height>61</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Noise</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="gamma">
+     <property name="geometry">
+      <rect>
+       <x>40</x>
+       <y>610</y>
+       <width>121</width>
+       <height>61</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Gamma</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="equaliser">
+     <property name="geometry">
+      <rect>
+       <x>40</x>
+       <y>690</y>
+       <width>121</width>
+       <height>61</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Equaliser</string>
+     </property>
+    </widget>
+   </widget>
+   <widget class="QFrame" name="header">
+    <property name="geometry">
+     <rect>
+      <x>199</x>
+      <y>10</y>
+      <width>991</width>
+      <height>61</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QLabel{
+color:#000;
+	font: 30pt &quot;Ubuntu Condensed Bold&quot;;
+}</string>
+    </property>
+    <property name="frameShape">
+     <enum>QFrame::StyledPanel</enum>
+    </property>
+    <property name="frameShadow">
+     <enum>QFrame::Raised</enum>
+    </property>
+    <widget class="QPushButton" name="discard">
+     <property name="geometry">
+      <rect>
+       <x>720</x>
+       <y>10</y>
+       <width>121</width>
+       <height>41</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Discard</string>
+     </property>
+     <property name="icon">
+      <iconset theme="edit-clear">
+       <normaloff>.</normaloff>.</iconset>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="save">
+     <property name="geometry">
+      <rect>
+       <x>850</x>
+       <y>10</y>
+       <width>121</width>
+       <height>41</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Save</string>
+     </property>
+     <property name="icon">
+      <iconset theme="document-save">
+       <normaloff>.</normaloff>.</iconset>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label">
+     <property name="geometry">
+      <rect>
+       <x>6</x>
+       <y>6</y>
+       <width>541</width>
+       <height>51</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Perespective</string>
+     </property>
+    </widget>
+   </widget>
+   <widget class="QFrame" name="footer">
+    <property name="geometry">
+     <rect>
+      <x>200</x>
+      <y>670</y>
+      <width>1001</width>
+      <height>80</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QLabel{
+color:#000
+}</string>
+    </property>
+    <property name="frameShape">
+     <enum>QFrame::StyledPanel</enum>
+    </property>
+    <property name="frameShadow">
+     <enum>QFrame::Raised</enum>
+    </property>
+    <widget class="QLabel" name="label_2">
+     <property name="geometry">
+      <rect>
+       <x>100</x>
+       <y>10</y>
+       <width>271</width>
+       <height>51</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>20</pointsize>
+       <italic>true</italic>
+       <bold>false</bold>
+      </font>
+     </property>
+     <property name="text">
+      <string>Original Image</string>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignCenter</set>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_3">
+     <property name="geometry">
+      <rect>
+       <x>600</x>
+       <y>10</y>
+       <width>271</width>
+       <height>51</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>20</pointsize>
+       <italic>true</italic>
+      </font>
+     </property>
+     <property name="text">
+      <string>Processed Image</string>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignCenter</set>
+     </property>
+    </widget>
+   </widget>
+   <zorder>ui</zorder>
+   <zorder>original</zorder>
+   <zorder>change</zorder>
+   <zorder>header</zorder>
+   <zorder>footer</zorder>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

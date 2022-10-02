@@ -136,11 +136,12 @@ class Ui_Noise(object):
 
     def update_image(self, value):
         isThere = os.path.exists(name)
+        val_value=value*0.2
         if isThere==False:
              img = Image.open(fname)
              img = img.save(name)
         i = cv2.imread(fname)
-        dst = cv2.fastNlMeansDenoising(i,None,value*0.2,7,21)
+        dst = cv2.fastNlMeansDenoising(i,None,val_value,7,21)
         cv2.imwrite(fname,dst)
         pixmap = QtGui.QPixmap(name)
         self.textEdit.setText(str(value))

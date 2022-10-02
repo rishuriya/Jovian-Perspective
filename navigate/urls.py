@@ -1,4 +1,5 @@
 from PyQt6 import QtCore, QtGui, QtWidgets
+from equaliser import Ui_equaliser
 from gamma import Ui_gamma
 from noise import Ui_Noise
 from sharpness import Ui_Sharpness
@@ -51,6 +52,13 @@ class Url:
     def gamma(self,Form,name,counter):
         self.window=QtWidgets.QWidget()
         self.ui=Ui_gamma()
+        self.ui.setupUi(self.window,name,counter)
+        Form.hide()
+        self.window.show()
+
+    def equaliser(self,Form,name,counter):
+        self.window=QtWidgets.QWidget()
+        self.ui=Ui_equaliser()
         self.ui.setupUi(self.window,name,counter)
         Form.hide()
         self.window.show()

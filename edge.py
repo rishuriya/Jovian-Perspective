@@ -141,13 +141,13 @@ class Ui_edge(object):
             img = Image.open(tname)
             img = img.save(name)
         i = cv2.imread(tname)
-        value = math.ceil(value*30/200)
-        if value==0:
+        val_value = math.ceil(value*30/200)
+        if val_value==0:
            out = i
-        if value%2==0 and value>0:
-           value = value+1
-        if value!=0:
-           out = image_processing.edgeYSobel(i, value)
+        if val_value%2==0 and value>0:
+           val_value = val_value+1
+        if val_value!=0:
+           out = image_processing.edgeYSobel(i, val_value)
         cv2.imwrite(name, out)
         pixmap = QtGui.QPixmap(name)
         self.textEdit.setText(str(value))

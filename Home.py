@@ -13,7 +13,7 @@ class Ui_Form(object):
         counter=x
         print(counter)
         Form.setObjectName("Form")
-        Form.resize(1200, 768)
+        Form.resize(1200, 796)
         sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Policy.Maximum, QtWidgets.QSizePolicy.Policy.Maximum)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
@@ -21,7 +21,7 @@ class Ui_Form(object):
         Form.setSizePolicy(sizePolicy)
         Form.setStyleSheet("")
         self.frame = QtWidgets.QFrame(Form)
-        self.frame.setGeometry(QtCore.QRect(0, 0, 1401, 731))
+        self.frame.setGeometry(QtCore.QRect(0, 0, 1401, 801))
         sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Policy.Maximum, QtWidgets.QSizePolicy.Policy.Maximum)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
@@ -45,7 +45,7 @@ class Ui_Form(object):
         self.frame.setFrameShadow(QtWidgets.QFrame.Shadow.Raised)
         self.frame.setObjectName("frame")
         self.original = QtWidgets.QLabel(self.frame)
-        self.original.setGeometry(QtCore.QRect(210, 90, 451, 501))
+        self.original.setGeometry(QtCore.QRect(210, 140, 451, 501))
         self.original.setText("")
         self.original.setObjectName("original")
 
@@ -60,7 +60,7 @@ class Ui_Form(object):
         self.original.setScaledContents(True)
 
         self.change = QtWidgets.QLabel(self.frame)
-        self.change.setGeometry(QtCore.QRect(710, 90, 451, 501))
+        self.change.setGeometry(QtCore.QRect(710, 140, 451, 501))
         self.change.setText("")
         self.change.setObjectName("change")
         global tname
@@ -74,7 +74,7 @@ class Ui_Form(object):
             self.change.setScaledContents(True)
 
         self.ui = QtWidgets.QFrame(self.frame)
-        self.ui.setGeometry(QtCore.QRect(-10, -10, 201, 751))
+        self.ui.setGeometry(QtCore.QRect(-10, -10, 201, 801))
         sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Policy.Maximum, QtWidgets.QSizePolicy.Policy.Maximum)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
@@ -119,6 +119,11 @@ class Ui_Form(object):
         self.gamma.setGeometry(QtCore.QRect(40, 610, 121, 61))
         self.gamma.setObjectName("noise")
         self.gamma.clicked.connect(self.open_Gamma)
+        self.equaliser = QtWidgets.QPushButton(self.ui)
+        self.equaliser.setGeometry(QtCore.QRect(40, 690, 121, 61))
+        self.equaliser.setObjectName("noise")
+        self.equaliser.clicked.connect(self.open_equaliser)
+        self.logo = QtWidgets.QLabel(self.ui)
         self.logo = QtWidgets.QLabel(self.ui)
         self.logo.setGeometry(QtCore.QRect(50, 20, 100, 100))
         self.logo.setText("")
@@ -153,7 +158,7 @@ class Ui_Form(object):
         self.label.setGeometry(QtCore.QRect(6, 6, 541, 51))
         self.label.setObjectName("label")
         self.footer = QtWidgets.QFrame(self.frame)
-        self.footer.setGeometry(QtCore.QRect(199, 610, 1001, 80))
+        self.footer.setGeometry(QtCore.QRect(199, 670, 1001, 80))
         self.footer.setStyleSheet("QLabel{\n"
 "color:#000\n"
 "}")
@@ -206,6 +211,9 @@ class Ui_Form(object):
 
     def open_Gamma(self):
         Url.gamma(self,wid,fname,counter)
+
+    def open_equaliser(self):
+        Url.equaliser(self,wid,fname,counter)
         
     def closeit(self):
         if isExist == True:
@@ -230,6 +238,7 @@ class Ui_Form(object):
         self.sharpness.setText(_translate("Form", "Sharpness"))
         self.noise.setText(_translate("Form", "Noise"))
         self.gamma.setText(_translate("Form", "Gamma cor."))
+        self.equaliser.setText(_translate("Form", "Equaliser"))
         self.edge.setText(_translate("Form", "Edge"))
         self.brightness.setText(_translate("Form", "Brightness"))
         self.colour.setText(_translate("Form", "Colour"))
