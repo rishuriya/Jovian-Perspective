@@ -2,8 +2,7 @@ from PyQt6 import QtCore, QtGui, QtWidgets
 import os
 
 from navigate.urls import Url
-from start import Ui_landing
-
+from navigate.navigate import Edit
 class Ui_Dialog(object):
     def setupUi(self, Dialog,Form):
         Dialog.setObjectName("Dialog")
@@ -70,11 +69,7 @@ class Ui_Dialog(object):
         isExist = os.path.exists("Temp/temp.png")
         if isExist==True:
             os.remove("Temp/temp.png")
-        self.window=QtWidgets.QWidget()
-        self.ui=Ui_landing()
-        self.ui.setupUi(self.window)
-        dialog_ui.hide()
-        self.window.show()
+        QtCore.QCoreApplication.instance().quit()
 
     def cancelit(self):
         dialog_ui.hide()
