@@ -28,14 +28,15 @@ class Ui_autoenhance(object):
 "color:#fff}")
         global fname
         fname="Temp/temp.png"
-        image = cv2.imread(File)
-        cv2.imwrite(name,image)
-        cv2.imwrite(fname,image)
         global isExist
         isExist = os.path.exists(fname)
         if isExist==False:
             img = Image.open(File)
             img = img.save(fname)
+        isThere = os.path.exists(name)
+        if isThere==False:
+            img = Image.open(fname)
+            img = img.save(name)
         self.verticalLayout = QtWidgets.QVBoxLayout(Form)
         self.verticalLayout.setObjectName("verticalLayout")
         self.frame = QtWidgets.QFrame(Form)
@@ -122,13 +123,13 @@ class Ui_autoenhance(object):
     
     def img_artistic(self):
         isThere = os.path.exists(name)
-        # if isThere==False:
-        #     img = Image.open(fname)
-        #     img = img.save(name)
-        i = cv2.imread(name)
+        if isThere==False:
+             img = Image.open(fname)
+             img = img.save(name)
+        i = cv2.imread(fname)
         out = image_processing.automatic_brightness_and_contrast(i)
-        cv2.imwrite(fname,out)
-        pixmap = QtGui.QPixmap(fname)
+        cv2.imwrite(name,out)
+        pixmap = QtGui.QPixmap(name)
         self.label.setPixmap(pixmap)
         self.label.setScaledContents(True)
 

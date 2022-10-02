@@ -142,6 +142,12 @@ class Ui_Form(object):
         self.header.setFrameShape(QtWidgets.QFrame.Shape.StyledPanel)
         self.header.setFrameShadow(QtWidgets.QFrame.Shadow.Raised)
         self.header.setObjectName("header")
+        self.share = QtWidgets.QPushButton(self.header)
+        self.share.setGeometry(QtCore.QRect(590, 10, 121, 41))
+        icon = QtGui.QIcon.fromTheme("emblem-shared")
+        self.share.setIcon(icon)
+        self.share.setObjectName("share")
+        self.share.clicked.connect(self.shar)
         self.discard = QtWidgets.QPushButton(self.header)
         self.discard.setGeometry(QtCore.QRect(720, 10, 121, 41))
         icon = QtGui.QIcon.fromTheme("edit-clear")
@@ -214,6 +220,10 @@ class Ui_Form(object):
 
     def open_equaliser(self):
         Url.equaliser(self,wid,fname,counter)
+
+    def shar(self):
+        print("Hello")
+        # code for share
         
     def closeit(self):
         if isExist == True:
@@ -244,7 +254,8 @@ class Ui_Form(object):
         self.colour.setText(_translate("Form", "Colour"))
         self.discard.setText(_translate("Form", "Discard"))
         self.save.setText(_translate("Form", "Save"))
-        self.label.setText(_translate("Form", "Perespective"))
+        self.share.setText(_translate("Form", "Share"))
+        self.label.setText(_translate("Form", "Perspective"))
         self.label_2.setText(_translate("Form", "Original Image"))
         if isExist==True:
             self.label_3.setText(_translate("Form", "Processed Image"))
