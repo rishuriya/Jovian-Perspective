@@ -61,7 +61,7 @@ class Ui_Noise(object):
         self.heading.setFont(font)
         self.heading.setAlignment(QtCore.Qt.AlignmentFlag.AlignCenter)
         self.heading.setObjectName("heading")
-        self.heading.setText("Sharpness")
+        self.heading.setText("Noise Reduction")
         self.verticalLayout.addWidget(self.frame, 0, QtCore.Qt.AlignmentFlag.AlignTop)
         self.frame_2 = QtWidgets.QFrame(Form)
         sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Policy.Expanding, QtWidgets.QSizePolicy.Policy.Expanding)
