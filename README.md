@@ -12,7 +12,7 @@ Processing the images in different aspects is important as it can provide better
 
 Write the following code to clone the repository
 ```bash
-git clone https://github.com/rishuriya/nasa-spaceapp
+git clone https://github.com/rishuriya/Jovian-Perspective
 ```
 
 To install all the required packages type the following code
